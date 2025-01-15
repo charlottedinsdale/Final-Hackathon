@@ -1,0 +1,1 @@
+web: gunicorn bonk_it.wsgi
