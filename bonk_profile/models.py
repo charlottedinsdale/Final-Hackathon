@@ -9,7 +9,7 @@ class BonkProfile(models.Model):
     profile_pic = CloudinaryField('image', default='Bonk-profile-default_fjze4j')
     total_games = models.PositiveIntegerField(default=0)
     def __str__(self):
-        return f"{self.username}"
+        return f"{self.username} | {self.total_games} games played"
 
 class HighScore(models.Model):
     EASY = 'Easy'
