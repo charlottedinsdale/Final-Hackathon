@@ -40,10 +40,10 @@
         </div>
         <div class="col">
             {% if user.is_authenticated %}
-                {% if highscores %}
+                {% if highscores.exists %}
                     {% for score in highscores %}
-                        {% if score.difficulty == 'EASY' %}
-                            <p>Score: <span id="high-score">{{ score.score }}</span></p>
+                        {% if score.difficulty == 'Easy' %}
+                            <p>HighScore <span id="high-score" data-high-score="{{ score.score }}">{{ score.score }}</span></p>
                         {% endif %}
                     {% endfor %}
                 {% else %}
@@ -82,7 +82,7 @@
                         {% csrf_token %}
                         <input type="hidden" name="username" value="{{ request.user.username }}">
                         <input type="hidden" id="score-input" name="score" value="">
-                        <input type="hidden" name="difficulty" value="easy">
+                        <input type="hidden" name="difficulty" value="Easy">
                         
                     
                 </div>

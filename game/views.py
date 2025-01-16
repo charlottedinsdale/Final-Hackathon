@@ -26,18 +26,22 @@ def easy(request):
 def submit_high_score(request):
     if request.method == 'POST':
         user = request.user
-        score = request.POST.get('score')
+        score = int(request.POST.get('score'))
         difficulty = request.POST.get('difficulty')
         
-        # Create a new HighScore record
-        HighScore.objects.create(
+        # Try to get the existing high score for this user and difficulty
+        high_score, created = HighScore.objects.get_or_create(
             username=user,
-            score=int(score),
-            difficulty=difficulty
+            difficulty=difficulty,
+            defaults={'score': score}
         )
+        # Create a new HighScore record
+        if not created and score > high_score.score:
+            high_score.score = score
+            high_score.save()
         
         # Redirect to a page showing high scores or back to the game
         return redirect('leaderboard')  
     
     # If not a POST request, redirect back to the game
-    return redirect('easy')  #
+    return redirect('easy')  

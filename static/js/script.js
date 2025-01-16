@@ -29,6 +29,8 @@ const prompts = [
 
 // DOM elements
 const gameInstructionDiv = document.getElementById("game-instruction");
+const navbar = document.getElementById("navbar");
+const footer = document.getElementById("footer");
 const currentScoreSpan = document.getElementById("current-score");
 const startButton = document.getElementById("start-button");
 const playAgainButton = document.getElementById("play-again")
@@ -58,7 +60,8 @@ function endGame() {
     clearTimeout(promptTimer);
     gameInstructionDiv.textContent = "Game Over! Final Score: " + score;
     startButton.disabled = false;
-
+    footer.style.display = "flex";
+    navbar.style.display = "block";
     // Update final score displays
     finalScoreSpan.textContent = score;
     document.getElementById("score-input").value = score;
@@ -66,6 +69,7 @@ function endGame() {
     const displayHighScore = isNaN(userHighScore) ? 0 : userHighScore;
     // Show/hide appropriate content based on score
     if (score > displayHighScore) {
+        console.log(displayHighScore)
         document.getElementById("high-score-content").style.display = "block";
         document.getElementById("low-score-content").style.display = "none";
         document.getElementById("submit-score").style.display = "block";
@@ -97,7 +101,7 @@ function newPrompt() {
     gameInstructionDiv.className = `prompt-${currentPrompt.buttonId}`
 
     const timerDuration = calculateTimerDuration(score);
-    
+
     promptTimer = setTimeout(() => {
         if (gameActive) endGame();
     }, timerDuration);
@@ -124,9 +128,15 @@ function updateScore() {
 }
 
 // Event listeners
-startButton.addEventListener("click", startGame);
+startButton.addEventListener("click", function(){
+    footer.style.display = "none";
+    navbar.style.display = "none";
+    startGame();
+});
 document.getElementById('play-again').addEventListener('click', function() {
     let modal = bootstrap.Modal.getInstance(document.getElementById('game-over-modal'));
+    footer.style.display = "none";
+    navbar.style.display = "none";
     modal.hide();
     startGame();
   });
