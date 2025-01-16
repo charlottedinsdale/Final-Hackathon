@@ -10,6 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="a fun interactive colour-based game where users test their reaction speeds to match colours to buttons and compete with friends on the leaderboard"
     <meta name="keywords" content="game, interactive game, leaderboard, fun game, bopit, bop, it, highscore, score, play, play game">
     <title class="slackey">Bonk it!</title>
     <!-- Google Fonts CSS -->
@@ -28,7 +29,7 @@
     <nav id="navbar" class="navbar navbar-expand-lg sticky-top bg-body-tertiary">
         <div class="container-fluid navbar-container">
             <a href= "{% url 'home' %}" class="navbar-brand-text heading fw-bold bee-title-link" aria-label="The Castle Hotel Homepage">
-               <h1 id="bonk-title">Bonk it!</h1>
+               <h1 class="slackey" id="bonk-title">Bonk it!</h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +41,7 @@
                         <a class="nav-link" href=# aria-label="Link to Play Game">Play</a>
                     </li>
                     <li>
-                        <a class="nav-link" href=# aria-label="Link to Leaderboard Page">Leaderboard</a>
+                        <a class="nav-link" href="/bonk_profile/templates/bonk_profile/global_leaderboard.html" aria-label="Link to Leaderboard Page">Leaderboard</a>
                     </li>
                     <li>
                         <a class="nav-link" href="{% url 'profile' %}" aria-label="Link to Profile Section">Profile</a>
@@ -71,21 +72,20 @@
         {% endblock content %}
     </main>
     <!-- FOOTER -->
-    <footer class="py-4">
+    <footer id="footer" class="py-2">
         <div class="container">
             <!-- Copyright -->
             <div class="row">
                 <div class="col-12 text-center">
-                    <p id="copyright">Designed and Built By Charlotte <a href="https://github.com/charlottedinsdale/" target="_blank" class="text-light me-3"> <i class="fab fa-github"></i></a>
-					    Joe <a href="https://github.com/charlottedinsdale/" target="_blank" class="text-light me-3"> <i class="fab fa-github"></i></a>
-						Adam <a href="https://github.com/Joesuth13" target="_blank" class="text-light me-3"> <i class="fab fa-github"></i></a>
-                        Rab <a href="https://github.com/rabsingh" target="_blank" class="text-light me-3"> <i class="fab fa-github"></i></a>
+                    <p id="copyright">Designed and Built By Charlotte <a href="https://github.com/charlottedinsdale/" target="_blank" class="text-light me-3" aria-label="link to Charlotte's github"> <i class="fab fa-github"></i></a>
+					    Joe <a href="https://github.com/Joesuth13/" target="_blank" class="text-light me-3" aria-label="link to Joe's github"> <i class="fab fa-github"></i></a>
+						Adam <a href="https://github.com/ajswanwick/" target="_blank" class="text-light me-3" aria-label="link to Adam's github"> <i class="fab fa-github"></i></a>
+                        Rab <a href="https://github.com/rabsingh" target="_blank" class="text-light me-3"> <i class="fab fa-github" aria-label="link to Rab's github"></i></a>
 					</p>
                 </div>
             </div>
         </div>
     </footer> 
-
 
     <!-- Font Awesome JS -->
     <script src="https://kit.fontawesome.com/b205b6285d.js" crossorigin="anonymous"></script>
