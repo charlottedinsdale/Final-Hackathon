@@ -24,7 +24,7 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
     <!-- HEADER -->
-    <nav id="navbar" class="navbar navbar-expand-lg fixed-top bg-body-tertiary">
+    <nav id="navbar" class="navbar navbar-expand-lg sticky-top bg-body-tertiary">
         <div class="container-fluid navbar-container">
             <a href= "{% url 'home' %}" class="navbar-brand-text heading fw-bold bee-title-link" aria-label="The Castle Hotel Homepage">
                <h1 id="bonk-title">Bonk it!</h1>
@@ -64,7 +64,7 @@
     </nav>
     
     <!-- MAIN CONTENT-->
-     <main class="flex-grow-1">
+     <main class=" d-flex flex-grow-1">
         {% block content %}
         <!-- Main page conent goes here -->
         {% endblock content %}

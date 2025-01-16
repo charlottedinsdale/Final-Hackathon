@@ -17,6 +17,50 @@ a {
 /*--- Home Page --*/
 
 /*--- Game Page --*/
+#game-container{
+    
+    width: 100%;
+}
+.game-row{
+    height: 33%;
+}
+.btn-col{
+    align-items: center;
+    justify-content: center;
+}
+.btn-pink,
+.btn-blue,
+.btn-green,
+.btn-red {
+    min-width: 14vw;
+    min-height: 7vw;
+    max-width: 25vw;
+    max-height: 10vw;
+}
+.btn-bonk {
+    min-width: 15vw;
+    min-height: 15vw;
+    max-width: 30vw;
+    max-height: 30vw;
+    background-color: #b864cb;
+}
+
+
+.btn-pink{
+    background-color: #FF73b7;
+}
+.btn-blue{
+    background-color: #72F6f8;
+}
+.btn-green{
+    background-color: #05f140;
+}
+.btn-red{
+    background-color: #f61111;
+}
+
+
+
 
 /*--- Global Leaderboard Page --*/
 

@@ -7,4 +7,4 @@ class HomePage(TemplateView):
     """
     template_name = 'index.html'
 
-def view_bonk_profile()
+# def view_bonk_profile()
