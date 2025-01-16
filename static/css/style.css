@@ -91,9 +91,35 @@ i:hover {
 .game-row{
     height: 33%;
 }
+/*------------------------------------------------ game instruction styling ----------------------------------*/
 #game-instruction{
     text-align: center;
 }
+
+.prompt-btn-bonk {
+    
+    color: #7a0694;
+}
+
+.prompt-btn-pink {
+    
+    color: #FF73b7;
+}
+
+.prompt-btn-blue {
+    
+    color: #72F6f8;
+}
+
+.prompt-btn-green {
+    
+    color: #05f140;
+}
+.prompt-btn-red {
+    
+    color: #f61111;
+}
+/*-------------------------------------------------------Button Styling--------------------------------------*/
 .btn-col{
     align-items: center;
     justify-content: center;
@@ -102,54 +128,61 @@ i:hover {
 #btn-blue,
 #btn-green,
 #btn-red {
-    min-width: 14vw;
-    min-height: 7vw;
     max-width: 25vw;
     max-height: 10vw;
-}
-#btn-bonk{
-    min-width: 15vw;
-    min-height: 15vw;
-    max-width: 30vw;
-    max-height: 30vw;
-}
-.btn-bonk {
-    
-    background-color: #7a0694;
-   
-}
-.prompt-btn-bonk {
-    
-    color: #7a0694;
+    color: black;
+    width: 20vw;
+    height: 10vw;
+    border-radius: 20px;
+    min-width: 100px;
+    min-height: 100px;
 }
 
+#btn-bonk{
+    min-width: 150px;
+    min-height: 150px;
+    width: 35vw;
+    height: 35vw;
+    max-width: 240px;
+    max-height: 240px;
+    border-radius: 35px;
+}
+.btn-bonk {
+    background-color: #7a0694;
+    border-color: #3f044d;
+    
+}
+.btn-bonk:hover {
+    background-color: #3f044d;
+}
 .btn-pink{
     background-color: #FF73b7;
+    border-color:#813a5c
 }
-.prompt-btn-pink {
-    
-    color: #FF73b7;
+.btn-pink:hover{
+    background-color: #813a5c;
 }
 .btn-blue{
     background-color: #72F6f8;
+    border-color: #347172;
 }
-.prompt-btn-blue {
-    
-    color: #72F6f8;
+.btn-blue:hover{
+    background-color: #347172;
 }
+
 .btn-green{
     background-color: #05f140;
+    border-color:#14742c;
 }
-.prompt-btn-green {
-    
-    color: #05f140;
+.btn-green:hover{
+    background-color: #14742c;
 }
 .btn-red{
     background-color: #f61111;
+    border-color: #5c0a0a;
 }
-.prompt-btn-red {
-    
-    color: #f61111;
+.btn-red:hover{
+    background-color: #5c0a0a;
 }
 
 

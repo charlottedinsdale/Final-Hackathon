@@ -1,6 +1,14 @@
 // Game configuration
 
-const TIME_TO_ANSWER = 2000; 
+
+function calculateTimerDuration(score) {
+    const baseTime = 2000; // Start with 2 seconds
+    const minTime = 500; // Minimum time of 0.5 seconds
+    const decreaseRate = 50; // Decrease by 50ms for each point
+    
+    let calculatedTime = baseTime - (score * decreaseRate);
+    return Math.max(calculatedTime, minTime); // Ensure it doesn't go below minTime
+}
 // const userHighScore = {{ user_high_score }};
 
 // Game state
@@ -23,9 +31,11 @@ const prompts = [
 const gameInstructionDiv = document.getElementById("game-instruction");
 const currentScoreSpan = document.getElementById("current-score");
 const startButton = document.getElementById("start-button");
+const playAgainButton = document.getElementById("play-again")
 const gameOverModal = new bootstrap.Modal(document.getElementById('game-over-modal'));
 const finalScoreSpan = document.getElementById("final-score");
 const highScoreForm = document.getElementById("high-score-form");
+const userHighScore = parseInt(document.getElementById('high-score').dataset.highScore);
 
 // Start game function
 function startGame() {
@@ -39,9 +49,8 @@ function startGame() {
    
 }
 
-// Assuming you've defined these at the top of your script
 
-const userHighScore = parseInt(document.getElementById('high-score').dataset.highScore);
+
 
 // End game function
 function endGame() {
@@ -53,15 +62,21 @@ function endGame() {
     // Update final score displays
     finalScoreSpan.textContent = score;
     document.getElementById("score-input").value = score;
-    
+    const highScoreElement = document.getElementById("user-high-score");
+    const displayHighScore = isNaN(userHighScore) ? 0 : userHighScore;
     // Show/hide appropriate content based on score
-    if (score > userHighScore) {
+    if (score > displayHighScore) {
         document.getElementById("high-score-content").style.display = "block";
         document.getElementById("low-score-content").style.display = "none";
+        document.getElementById("submit-score").style.display = "block";
+        document.getElementById("play-again").style.display = "none";
     } else {
         document.getElementById("high-score-content").style.display = "none";
         document.getElementById("low-score-content").style.display = "block";
+        document.getElementById("submit-score").style.display = "none";
+        document.getElementById("play-again").style.display = "block";
         document.getElementById("user-high-score").textContent = userHighScore;
+        highScoreElement.textContent = displayHighScore;
     }
     
     // Show the Bootstrap modal
@@ -81,9 +96,11 @@ function newPrompt() {
     gameInstructionDiv.textContent = currentPrompt.text;
     gameInstructionDiv.className = `prompt-${currentPrompt.buttonId}`
 
+    const timerDuration = calculateTimerDuration(score);
+    
     promptTimer = setTimeout(() => {
         if (gameActive) endGame();
-    }, TIME_TO_ANSWER);
+    }, timerDuration);
 }
 
 // Handle button clicks
@@ -108,6 +125,11 @@ function updateScore() {
 
 // Event listeners
 startButton.addEventListener("click", startGame);
+document.getElementById('play-again').addEventListener('click', function() {
+    let modal = bootstrap.Modal.getInstance(document.getElementById('game-over-modal'));
+    modal.hide();
+    startGame();
+  });
 
 // Add click listeners to game buttons
 prompts.forEach(prompt => {

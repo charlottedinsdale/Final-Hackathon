@@ -91,41 +91,66 @@ i:hover {
 .game-row{
     height: 33%;
 }
+#game-instruction{
+    text-align: center;
+}
 .btn-col{
     align-items: center;
     justify-content: center;
 }
-.btn-pink,
-.btn-blue,
-.btn-green,
-.btn-red {
+#btn-pink,
+#btn-blue,
+#btn-green,
+#btn-red {
     min-width: 14vw;
     min-height: 7vw;
     max-width: 25vw;
     max-height: 10vw;
 }
-.btn-bonk {
+#btn-bonk{
     min-width: 15vw;
     min-height: 15vw;
     max-width: 30vw;
     max-height: 30vw;
-    background-color: #7a0694;
 }
-
+.btn-bonk {
+    
+    background-color: #7a0694;
+   
+}
+.prompt-btn-bonk {
+    
+    color: #7a0694;
+}
 
 .btn-pink{
     background-color: #FF73b7;
 }
+.prompt-btn-pink {
+    
+    color: #FF73b7;
+}
 .btn-blue{
     background-color: #72F6f8;
+}
+.prompt-btn-blue {
+    
+    color: #72F6f8;
 }
 .btn-green{
     background-color: #05f140;
 }
+.prompt-btn-green {
+    
+    color: #05f140;
+}
 .btn-red{
     background-color: #f61111;
 }
-
+.prompt-btn-red {
+    
+    color: #f61111;
+}
 
 
 

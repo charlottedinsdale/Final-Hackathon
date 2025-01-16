@@ -14,7 +14,7 @@ def easy(request):
     
     if request.user.is_authenticated:
         user = request.user
-        highscores = HighScore.objects.filter(user=request.user)
+        highscores = HighScore.objects.filter(username=request.user)
         context = {
         'user': user,
         'highscores': highscores
@@ -25,19 +25,19 @@ def easy(request):
 @login_required
 def submit_high_score(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
+        user = request.user
         score = request.POST.get('score')
         difficulty = request.POST.get('difficulty')
         
         # Create a new HighScore record
         HighScore.objects.create(
-            username=username,
+            username=user,
             score=int(score),
             difficulty=difficulty
         )
         
         # Redirect to a page showing high scores or back to the game
-        return redirect('high_scores')  # Or whatever URL you want to redirect to
+        return redirect('leaderboard')  
     
     # If not a POST request, redirect back to the game
-    return redirect('game')  # Replace 'game' with your actual game URL name
+    return redirect('easy')  #

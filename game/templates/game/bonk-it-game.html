@@ -70,33 +70,33 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLongTitle">Game Over!</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-            <p>Your final score: <span id="final-score"></span></p>
-        
-            <div id="high-score-content" style="display: none;">
-                <p>Congratulations! You've beaten your previous high score!</p>
-                <form id="high-score-form" method="post" action="{% url 'submit_high_score' %}">
-                    {% csrf_token %}
-                    <input type="hidden" name="username" value="{{ request.user.username }}">
-                    <input type="hidden" id="score-input" name="score" value="">
-                    <input type="hidden" name="difficulty" value="easy">
-                    <button type="submit">Submit New High Score</button>
-                </form>
-            </div>
+        <form id="high-score-form" method="post" action="{% url 'submit_high_score' %}">
+            <div class="modal-body">
+                <p>Your final score: <span id="final-score"></span></p>
             
-            <div id="low-score-content" style="display: none;">
-                <p>Keep practicing! Your current high score is <span id="user-high-score"></span>.</p>
+                <div id="high-score-content" style="display: none;">
+                    <p>Congratulations! You've beaten your previous high score!</p>
+                    
+                        {% csrf_token %}
+                        <input type="hidden" name="username" value="{{ request.user.username }}">
+                        <input type="hidden" id="score-input" name="score" value="">
+                        <input type="hidden" name="difficulty" value="easy">
+                        
+                    
+                </div>
                 
+                <div id="low-score-content" style="display: none;">
+                    <p>Keep practicing! Your current high score is <span id="user-high-score"></span>.</p>
+                    
+                </div>
             </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button id="play-again" type="submit" class="btn btn-primary">Play again</button>
-        </div>
+            <div class="modal-footer">
+            <button id="submit-score" type="submit" class="btn btn-secondary">Submit Score</button>
+            <button id="play-again" type="button" class="btn btn-primary">Play again</button>
+            </div>
+        </form>
       </div>
     </div>
   </div>
