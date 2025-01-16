@@ -6,98 +6,109 @@
     
 <div class="container mt-5">
     <!-- Global Leaderboard Title -->
-    <h1 class=" slackey text-center mb-4">Global Leaderboard</h1>
+    <h1 class="slackey text-center mb-4">Global Leaderboard</h1>
 
-    <!-- Bootstrap Grid for Side-by-Side Tables -->
+    <!-- Bootstrap Grid for Side-by-Side Cards -->
     <div class="row">
-        <!-- Easy Leaderboard Column -->
+        <!-- Easy Leaderboard Card -->
         <div class="col-md-4 leaderboard-section">
-            <h2 class=" slackey text-center">Easy</h2>
-            <table class="table table-bordered leaderboard-table">
-                <thead>
-                    <tr>
-                        <th class=" leaderboard-header">Rank</th>
-                        <th class=" leaderboard-header">Username</th>
-                        <th class="leaderboard-header">Score</th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for score in easy_leaderboard %}
-                        <tr>
-                            <td>{{ forloop.counter }}</td>
-                            <td>{{ score.username }}</td>
-                            <td>{{ score.score }}</td>
-                            
-                        </tr>
-                    {% empty %}
-                        <tr>
-                            <td colspan="4" class="no-scores">No scores available for Easy difficulty.</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            <div class="card">
+                <div class="card-header text-center">
+                    <h2 class="slackey mb-0">Easy</h2>
+                </div>
+                <div class="card-body easy-section">
+                    <table class="table table-bordered leaderboard-table mb-0">
+                        <thead>
+                            <tr>
+                                <th class="iceland leaderboard-header text-center">Rank</th>
+                                <th class="iceland leaderboard-header text-center">Username</th>
+                                <th class="iceland leaderboard-header text-center">Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for score in easy_leaderboard %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ score.username }}</td>
+                                    <td>{{ score.score }}</td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td colspan="3" class="no-scores">No scores available for Easy difficulty.</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
-        <!-- Hard Leaderboard Column -->
+        <!-- Hard Leaderboard Card -->
         <div class="col-md-4 leaderboard-section">
-            <h2 class=" slackey text-center">Hard</h2>
-            <table class="table table-bordered leaderboard-table">
-                <thead>
-                    <tr>
-                        <th class="leaderboard-header">Rank</th>
-                        <th class="leaderboard-header">Username</th>
-                        <th class="leaderboard-header">Score</th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for score in hard_leaderboard %}
-                        <tr>
-                            <td>{{ forloop.counter }}</td>
-                            <td>{{ score.username }}</td>
-                            <td>{{ score.score }}</td>
-                           
-                        </tr>
-                    {% empty %}
-                        <tr>
-                            <td colspan="4" class="no-scores">No scores available for Hard difficulty.</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            <div class="card hard-section">
+                <div class="card-header text-center">
+                    <h2 class="slackey mb-0">Hard</h2>
+                </div>
+                <div class="card-body hard-section">
+                    <table class="table table-bordered leaderboard-table mb-0">
+                        <thead>
+                            <tr>
+                                <th class="iceland leaderboard-header text-center">Rank</th>
+                                <th class="iceland leaderboard-header  text-center">Username</th>
+                                <th class="iceland leaderboard-header text-center">Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for score in hard_leaderboard %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ score.username }}</td>
+                                    <td>{{ score.score }}</td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td colspan="3" class="no-scores">No scores available for Hard difficulty.</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
-        <!-- Heck Leaderboard Column -->
+        <!-- Heck Leaderboard Card -->
         <div class="col-md-4 leaderboard-section">
-            <h2 class=" slackey text-center">Heck </h2>
-            <table class="table table-bordered leaderboard-table">
-                <thead>
-                    <tr>
-                        <th class="leaderboard-header">Rank</th>
-                        <th class="leaderboard-header">Username</th>
-                        <th class="leaderboard-header">Score</th>
-                      
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for score in heck_leaderboard %}
-                        <tr>
-                            <td>{{ forloop.counter }}</td>
-                            <td>{{ score.username }}</td>
-                            <td>{{ score.score }}</td>
-                            
-                        </tr>
-                    {% empty %}
-                        <tr>
-                            <td colspan="4" class="no-scores">No scores available for Heck difficulty.</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            <div class="card heck-section">
+                <div class="card-header text-center">
+                    <h2 class="slackey mb-0">Heck</h2>
+                </div>
+                <div class="card-body heck-section">
+                    <table class="table table-bordered leaderboard-table mb-0">
+                        <thead>
+                            <tr>
+                                <th class="iceland leaderboard-header text-center">Rank</th>
+                                <th class="iceland leaderboard-header  text-center">Username</th>
+                                <th class="iceland leaderboard-header text-center">Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for score in heck_leaderboard %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ score.username }}</td>
+                                    <td>{{ score.score }}</td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td colspan="3" class="no-scores">No scores available for Heck difficulty.</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div> <!-- End of row -->
-
 </div>
 {% endblock %}
 
