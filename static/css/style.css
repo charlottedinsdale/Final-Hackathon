@@ -15,6 +15,17 @@ a {
     text-decoration: none;
 }
 
+.main-btn {
+    background-color: #1fee53;
+    color: #7a0694;
+}
+
+.main-btn:hover, .main-btn:focus {
+    color: #05f140;
+    background-color: #7a0694;
+}
+
+
 /*--- Header and Navbar --*/
 #bonk-title {
     color:#05f140;
@@ -43,6 +54,11 @@ a {
 .nav-link:hover, .nav-link:focus {
     font-weight: 800;
     color:#05f140;
+}
+
+.nav-link.active {
+    font-weight: 600;
+    color: #05f140 !important;
 }
 
 .navbar-toggler-icon {
@@ -110,9 +126,6 @@ i:hover {
 .btn-red{
     background-color: #f61111;
 }
-
-
-
 
 /*--- Global Leaderboard Page --*/
 h1 {
