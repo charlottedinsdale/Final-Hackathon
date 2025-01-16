@@ -21,5 +21,6 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
     path('', include('bonk_profile.urls'), name='home'),
+     path('game/', include('game.urls'))
 ]
 
