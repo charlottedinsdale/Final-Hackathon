@@ -3,6 +3,7 @@
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
+{% url 'profile' as profile_url %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="game, interactive game, leaderboard, fun game, bopit, bop, it, highscore, score, play, play game">
-    <title>Bonk it!</title>
+    <title class="slackey">Bonk it!</title>
     <!-- Google Fonts CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +25,7 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
     <!-- HEADER -->
-    <nav id="navbar" class="navbar navbar-expand-lg fixed-top bg-body-tertiary">
+    <nav id="navbar" class="navbar navbar-expand-lg sticky bg-body-tertiary">
         <div class="container-fluid navbar-container">
             <a href= "{% url 'home' %}" class="navbar-brand-text heading fw-bold bee-title-link" aria-label="The Castle Hotel Homepage">
                <h1 id="bonk-title">Bonk it!</h1>
@@ -42,7 +43,7 @@
                         <a class="nav-link" href=# aria-label="Link to Leaderboard Page">Leaderboard</a>
                     </li>
                     <li>
-                        <a class="nav-link" href=# aria-label="Link to Profile Section">Profile</a>
+                        <a class="nav-link" href="{% url 'profile' %}" aria-label="Link to Profile Section">Profile</a>
                     </li>
                     <!-- If statement to determine user sign in status -->
                     {% if user.is_authenticated %}
@@ -90,8 +91,6 @@
     <script src="https://kit.fontawesome.com/b205b6285d.js" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>  
-    <!-- FullCalendar JS -->
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
     <!-- Custom JS -->
     <script src="{% static 'js/script.js' %}"></script>
 </body>
