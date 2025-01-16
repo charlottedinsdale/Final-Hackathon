@@ -2,9 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 
 class HomePage(TemplateView):
-    """
-    Displays home page"
-    """
     template_name = 'index.html'
 
-# def view_bonk_profile()
+class BonkProfile(TemplateView):
+    template_name = 'bonk_profile/bonk_profile.html'

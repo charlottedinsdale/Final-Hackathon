@@ -4,7 +4,7 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-<img class="profile-pic" src="{{ profile.profile_pic }}">
+<img class="profile-pic" src="{{ user.bonkprofile.profile_pic.url }}">
 <h2 class="slackey">{{ user.username }}</h2>
 {% else %}
 <h2 class="slackey">Bonk! You're not logged in please 
