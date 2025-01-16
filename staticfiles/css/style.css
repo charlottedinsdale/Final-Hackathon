@@ -21,5 +21,12 @@ a {
 /*--- Global Leaderboard Page --*/
 
 /*--- Profile Page --*/
+.profile-pic {
+    width: 150px;            
+    height: 150px;           
+    border-radius: 50%;      
+    object-fit: cover;       
+    border: 2px solid #b864cb; 
+}
 
 /*--- Accounts Pages --*/
