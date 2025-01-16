@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<img class="profile-pic" src="{{ profile.profile_pic }}">
+<h2 class="slackey">{{ user.username }}</h2>
+{% else %}
+<h2 class="slackey">Bonk! You're not logged in please 
+    <a href=#>Log in</a> or 
+    <a href=#>Sign Up</a> to create your profile!
+</h2>
+{% endif %}
+
+{% endblock %}

@@ -6,3 +6,5 @@ class HomePage(TemplateView):
     Displays home page"
     """
     template_name = 'index.html'
+
+def view_bonk_profile()
