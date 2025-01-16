@@ -34,11 +34,12 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = ['8000-charlottedi-finalhackat-n7sqyoyl5vj.ws.codeinstitute-ide.net',
-                 'bonk-it-4b634a86c337.herokuapp.com', 'localhost:8000'
+                 'bonk-it-4b634a86c337.herokuapp.com','localhost'
 ]
 
 CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 
-                        'https://*.herokuapp.com']
+                        'https://*.herokuapp.com',
+                        ]
 
 # Application definition
 
