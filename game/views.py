@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from bonk_profile.models import Highscore
 # Create your views here.
 
 def home(request):
@@ -7,7 +7,7 @@ def home(request):
 
 
 def easy(request):
-    # if request == 'POST':
-    #     form = 
+    user = request.user
+    
     return render(request, 'game/bonk-it-game.html')
     
