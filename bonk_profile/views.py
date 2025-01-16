@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.views import View
 from .models import HighScore, BonkProfile
@@ -22,8 +22,14 @@ class LeaderboardView(View):
         'heck_leaderboard': heck_leaderboard,
     })
 
-class BonkProfile(TemplateView):
-    template_name = 'bonk_profile/bonk_profile.html'
+def profile_view(request):
+    try:
+        bonk_profile = request.user.bonkprofile 
+    except BonkProfile.DoesNotExist:
+        bonk_profile = None 
+    return render(request, 'bonk_profile/bonk_profile.html', {
+        'bonkprofile': bonk_profile,
+    })
 
 def update_profile(request):
     user_profile = request.user.bonkprofile
