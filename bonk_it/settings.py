@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-charlottedi-finalhackat-n7sqyoyl5vj.ws.codeinstitute-ide.net',
-                 '8000-charlottedi-finalhackat-u4sfkjo67l3.ws.codeinstitute-ide.net',
+                 '8000-charlottedi-finalhackat-wy0ha11e05j.ws.codeinstitute-ide.net',
                  'bonk-it-4b634a86c337.herokuapp.com',
                  'bonk-it-4b634a86c337.herokuapp.com','localhost'
 ]

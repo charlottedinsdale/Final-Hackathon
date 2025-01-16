@@ -19,6 +19,8 @@ class LeaderboardView(View):
             'easy_leaderboard': easy_leaderboard,
             'hard_leaderboard': hard_leaderboard,
             'heck_leaderboard': heck_leaderboard,
+        })
+        return render(request, 'bonk_profile/global_leaderboard.html', context)
 
 class BonkProfile(TemplateView):
     template_name = 'bonk_profile/bonk_profile.html'

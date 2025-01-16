@@ -17,11 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from bonk_profile.views import LeaderboardView
+from bonk_profile import views
+
+
 
 urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
     path('', include('bonk_profile.urls'), name='home'),
-     path('game/', include('game.urls'))
+    path('leaderboard/', LeaderboardView.as_view(), name='leaderboard'),
+    path('game/', include('game.urls')),
+    
 ]
 

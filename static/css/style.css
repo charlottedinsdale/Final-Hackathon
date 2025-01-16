@@ -119,8 +119,17 @@ h1 {
     margin-top: 20px;
 }
 
+.leader-header{
+    
+    font-size: 3.5rem;
+    color:#05f140;
+    -webkit-text-stroke: 0.8px black;
+
+}
+
 .card-header{
-    background-color: #fff;
+    background-color: #fff
+    
 }
 .easy-section{
     background-color: #dd3cc2ee
