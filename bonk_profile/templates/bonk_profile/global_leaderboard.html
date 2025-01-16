@@ -3,4 +3,101 @@
 
 {% block content %}
 <h1 class="slackey">Leaderboard</h1>
+    
+<div class="container mt-5">
+    <!-- Global Leaderboard Title -->
+    <h1 class=" slackey text-center mb-4">Global Leaderboard</h1>
+
+    <!-- Bootstrap Grid for Side-by-Side Tables -->
+    <div class="row">
+        <!-- Easy Leaderboard Column -->
+        <div class="col-md-4 leaderboard-section">
+            <h2 class=" slackey text-center">Easy</h2>
+            <table class="table table-bordered leaderboard-table">
+                <thead>
+                    <tr>
+                        <th class=" leaderboard-header">Rank</th>
+                        <th class=" leaderboard-header">Username</th>
+                        <th class="leaderboard-header">Score</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for score in easy_leaderboard %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ score.username }}</td>
+                            <td>{{ score.score }}</td>
+                            
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="4" class="no-scores">No scores available for Easy difficulty.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Hard Leaderboard Column -->
+        <div class="col-md-4 leaderboard-section">
+            <h2 class=" slackey text-center">Hard</h2>
+            <table class="table table-bordered leaderboard-table">
+                <thead>
+                    <tr>
+                        <th class="leaderboard-header">Rank</th>
+                        <th class="leaderboard-header">Username</th>
+                        <th class="leaderboard-header">Score</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for score in hard_leaderboard %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ score.username }}</td>
+                            <td>{{ score.score }}</td>
+                           
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="4" class="no-scores">No scores available for Hard difficulty.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Heck Leaderboard Column -->
+        <div class="col-md-4 leaderboard-section">
+            <h2 class=" slackey text-center">Heck </h2>
+            <table class="table table-bordered leaderboard-table">
+                <thead>
+                    <tr>
+                        <th class="leaderboard-header">Rank</th>
+                        <th class="leaderboard-header">Username</th>
+                        <th class="leaderboard-header">Score</th>
+                      
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for score in heck_leaderboard %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ score.username }}</td>
+                            <td>{{ score.score }}</td>
+                            
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="4" class="no-scores">No scores available for Heck difficulty.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div> <!-- End of row -->
+
+</div>
 {% endblock %}
+
