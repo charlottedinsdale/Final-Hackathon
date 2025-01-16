@@ -40,7 +40,7 @@ a {
     font-size: 30px;
 }
 
-.nav-link:hover {
+.nav-link:hover, .nav-link:focus {
     font-weight: 800;
     color:#05f140;
 }
