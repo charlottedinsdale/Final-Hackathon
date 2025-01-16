@@ -1,19 +1,71 @@
 /*--- Global Styles --*/
-.slackey {
-    font-family: "Slackey", serif;
+body {
+    font-family: "Iceland", serif;
 }
 
-.iceland {
-    font-family: "Iceland", serif;
+main {
+    background-color: #d487e5;
+}
+
+.slackey {
+    font-family: "Slackey", serif;
 }
 
 a {
     text-decoration: none;
 }
+
 /*--- Header and Navbar --*/
+#bonk-title {
+    color:#05f140;
+}
+
+.navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.navbar-container {
+    background-color: #7a0694;  
+    color: #05f140;
+}
+
+.navbar-toggler {
+    color: #05f140;
+    margin-bottom: 5px;
+}
+
+.nav-link {
+    color:#05f140;
+    font-size: 30px;
+}
+
+.nav-link:hover {
+    font-weight: 800;
+    color:#05f140;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(5,241,64)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
 
 /*--- Footer --*/
+#footer {
+    background-color: #7a0694;
+    color: #05f140;
+    font-size: 20px;
+}
 
+i {
+    transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;   
+    -o-transition: all .5s ease-in-out; 
+}
+
+i:hover {
+    color: #05f140;
+}
 /*--- Home Page --*/
 
 /*--- Game Page --*/
@@ -42,7 +94,7 @@ a {
     min-height: 15vw;
     max-width: 30vw;
     max-height: 30vw;
-    background-color: #b864cb;
+    background-color: #7a0694;
 }
 
 
@@ -65,12 +117,20 @@ a {
 /*--- Global Leaderboard Page --*/
 
 /*--- Profile Page --*/
+.profile-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top:20px;
+}
+
 .profile-pic {
     width: 150px;            /* Set a fixed width */
     height: 150px;           /* Set a fixed height */
     border-radius: 50%;      /* Make the image circular */
     object-fit: cover;       /* Ensure the image fills the circle without distorting */
-    border: 2px solid #ddd; /* Optional: adds a border around the circle */
+    border: 8px solid #7a0694; /* Optional: adds a border around the circle */
 }
 
 /*--- Accounts Pages --*/
