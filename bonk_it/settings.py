@@ -56,7 +56,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'cloudinary',
     'bonk_profile',
-    'game',
+    'game', 
 ]
 
 SITE_ID = 1
