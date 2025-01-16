@@ -25,7 +25,6 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
     path('', include('bonk_profile.urls'), name='home'),
-    path('leaderboard/', LeaderboardView.as_view(), name='leaderboard'),
     path('game/', include('game.urls')),
     
 ]

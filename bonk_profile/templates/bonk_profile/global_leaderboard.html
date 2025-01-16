@@ -14,20 +14,23 @@
         <div class="col-md-12 leaderboard-section mb-4">
             <div class="card heck-section">
                 <div class="card-header text-center">
-                    <h2 class="slackey mb-0">Heck</h2>
+                    <h2 class="iceland scoreboard">Heck</h2>
                 </div>
                 <div class="card-body heck-section">
                     <table class="table table-bordered leaderboard-table">
                         <thead>
                             <tr>
-                                <th class="iceland leaderboard-header text-center">Rank</th>
-                                <th class="iceland leaderboard-header  text-center">Username</th>
-                                <th class="iceland leaderboard-header text-center">Score</th>
+                                <th class="iceland subhead text-center">Rank</th>
+                                <th class="iceland subhead  text-center">Username</th>
+                                <th class="iceland subhead text-center">Score</th>
+                                
+                        
+                        
                             </tr>
                         </thead>
                         <tbody>
                             {% for score in heck_leaderboard %}
-                                <tr>
+                            <tr class="{% if forloop.first %} highest-score{% endif %}">
                                     <td>{{ forloop.counter }}</td>
                                     <td>{{ score.username }}</td>
                                     <td>{{ score.score }}</td>
@@ -47,20 +50,21 @@
  <div class="col-md-6 leaderboard-section mb-4">
     <div class="card hard-section">
         <div class="card-header text-center">
-            <h2 class="slackey mb-0">Hard</h2>
+            <h2 class="iceland scoreboard ">Hard</h2>
         </div>
         <div class="card-body hard-section">
             <table class="table table-bordered leaderboard-table">
                 <thead>
                     <tr>
-                        <th class="iceland leaderboard-header text-center">Rank</th>
-                        <th class="iceland leaderboard-header  text-center">Username</th>
-                        <th class="iceland leaderboard-header text-center">Score</th>
+                        <th class="iceland subhead text-center">Rank</th>
+                        <th class="iceland subhead  text-center">Username</th>
+                        <th class="iceland subhead text-center">Score</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for score in hard_leaderboard %}
-                        <tr>
+                    <tr class="{% if forloop.first %} highest-score{% endif %}">
+                            
                             <td>{{ forloop.counter }}</td>
                             <td>{{ score.username }}</td>
                             <td>{{ score.score }}</td>
@@ -80,20 +84,20 @@
         <div class="col-md-6 leaderboard-section mb-4">
             <div class="card easy-section">
                 <div class="card-header text-center">
-                    <h2 class="slackey mb-0">Easy</h2>
+                    <h2 class="iceland scoreboard">Easy</h2>
                 </div>
                 <div class="card-body easy-section">
                     <table class="table table-bordered leaderboard-table">
                         <thead>
                             <tr>
-                                <th class="iceland leaderboard-header text-center">Rank</th>
-                                <th class="iceland leaderboard-header text-center">Username</th>
-                                <th class="iceland leaderboard-header text-center">Score</th>
+                                <th class="iceland subhead text-center">Rank</th>
+                                <th class="iceland subhead text-center">Username</th>
+                                <th class="iceland subhead text-center">Score</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for score in easy_leaderboard %}
-                                <tr>
+                            <tr class="{% if forloop.first %} highest-score{% endif %}">
                                     <td>{{ forloop.counter }}</td>
                                     <td>{{ score.username }}</td>
                                     <td>{{ score.score }}</td>
