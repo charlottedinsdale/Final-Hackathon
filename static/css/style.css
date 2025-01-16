@@ -115,6 +115,35 @@ i:hover {
 
 
 /*--- Global Leaderboard Page --*/
+/
+h1 {
+    margin-top: 20px;
+}
+
+.card-header{
+    background-color: #fff;
+}
+.easy-section{
+    background-color: #dd3cc2ee
+}
+.hard-section{
+    background-color: #1f68ee
+
+}
+
+.heck-section{
+    background-color: #1fee53
+}
+
+td{
+    font-family:"Iceland", serif;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+th{
+    font-size: 1.5rem;
+}
 
 /*--- Profile Page --*/
 .profile-container {

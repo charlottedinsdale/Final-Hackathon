@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from bonk_profile.views import LeaderboardView
 
 urlpatterns = [
     path("accounts/", include("allauth.urls")),
