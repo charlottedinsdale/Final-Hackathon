@@ -4,9 +4,6 @@ from django.views import View
 from .models import HighScore
 
 class HomePage(TemplateView):
-    """
-    Displays home page"
-    """
     template_name = 'index.html'
 
 class LeaderboardView(View):
@@ -22,4 +19,6 @@ class LeaderboardView(View):
             'easy_leaderboard': easy_leaderboard,
             'hard_leaderboard': hard_leaderboard,
             'heck_leaderboard': heck_leaderboard,
-        })
+
+class BonkProfile(TemplateView):
+    template_name = 'bonk_profile/bonk_profile.html'

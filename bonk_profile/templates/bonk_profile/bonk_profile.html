@@ -3,14 +3,16 @@
 
 {% block content %}
 
-{% if user.is_authenticated %}
-<img class="profile-pic" src="{{ profile.profile_pic }}">
-<h2 class="slackey">{{ user.username }}</h2>
-{% else %}
-<h2 class="slackey">Bonk! You're not logged in please 
-    <a href=#>Log in</a> or 
-    <a href=#>Sign Up</a> to create your profile!
-</h2>
-{% endif %}
+<div class="profile-container">
+    {% if user.is_authenticated %}
+    <img class="profile-pic" src="{{ user.bonkprofile.profile_pic.url }}" alt="{{user.username}}'s profile picture">
+    <h2 class="slackey">{{ user.username }}</h2>
+    {% else %}
+    <h2 class="slackey">Bonk! You're not logged in please 
+        <a href=#>Log in</a> or 
+        <a href=#>Sign Up</a> to create your profile!
+    </h2>
+    {% endif %}
+</div>
 
 {% endblock %}

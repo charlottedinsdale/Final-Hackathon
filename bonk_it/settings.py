@@ -36,10 +36,12 @@ DEBUG = True
 ALLOWED_HOSTS = ['8000-charlottedi-finalhackat-n7sqyoyl5vj.ws.codeinstitute-ide.net',
                  '8000-charlottedi-finalhackat-u4sfkjo67l3.ws.codeinstitute-ide.net',
                  'bonk-it-4b634a86c337.herokuapp.com',
+                 'bonk-it-4b634a86c337.herokuapp.com','localhost'
 ]
 
 CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 
-                        'https://*.herokuapp.com']
+                        'https://*.herokuapp.com',
+                        ]
 
 # Application definition
 
@@ -57,6 +59,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'cloudinary',
     'bonk_profile',
+    'game', 
 ]
 
 SITE_ID = 1
