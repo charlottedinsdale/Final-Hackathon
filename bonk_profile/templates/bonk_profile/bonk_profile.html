@@ -7,6 +7,7 @@
     {% if user.is_authenticated %}
     <img class="profile-pic" src="{{ user.bonkprofile.profile_pic.url }}" alt="{{user.username}}'s profile picture">
     <h2 class="slackey">{{ user.username }}</h2>
+    <a href="{% url 'update_profile' %}" class="btn main-btn">Update Profile Pic</a>
     {% else %}
     <h2 class="slackey">Bonk! You're not logged in please 
         <a href=#>Log in</a> or 
