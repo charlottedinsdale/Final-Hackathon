@@ -89,13 +89,28 @@ i:hover {
     width: 100%;
 }
 .game-row{
-    height: 33%;
+    min-height: 25%;
+}
+.score-para{
+    font-size: 2rem;
+    text-align: center;
+    
+    color: #7a0694;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#high-score, #current-score{
+    font-size: 2.5rem;
+    color: #05f140;
+    background-color: #21032973;
 }
 /*------------------------------------------------ game instruction styling ----------------------------------*/
 #game-instruction{
     text-align: center;
     background-color: #21032973;
-    font-size: 2.5rem;
+    font-size: 2.5rem
 }
 
 .prompt-btn-bonk {
@@ -125,6 +140,17 @@ i:hover {
 .btn-col{
     align-items: center;
     justify-content: center;
+}
+#start-button{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color:#05f140;
+    border: 0px;
+    border-radius: 35px;
 }
 #btn-pink,
 #btn-blue,

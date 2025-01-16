@@ -14,12 +14,44 @@ def easy(request):
     
     if request.user.is_authenticated:
         user = request.user
-        highscores = HighScore.objects.filter(username=request.user)
+        highscores = HighScore.objects.filter(username=request.user, difficulty="Easy")
         context = {
         'user': user,
         'highscores': highscores
         }
     return render(request, 'game/bonk-it-game.html', context)
+
+
+def hard(request):
+    context = {
+        'highscores': None
+    }
+    
+    if request.user.is_authenticated:
+        user = request.user
+        highscores = HighScore.objects.filter(username=request.user, difficulty="Hard")
+        
+        context = {
+        'user': user,
+        'highscores': highscores
+        }
+    return render(request, 'game/hard-mode.html', context)
+
+
+def heck(request):
+    context = {
+        'highscores': None
+    }
+    
+    if request.user.is_authenticated:
+        user = request.user
+        highscores = HighScore.objects.filter(username=request.user, difficulty="Heck")
+        
+        context = {
+        'user': user,
+        'highscores': highscores
+        }
+    return render(request, 'game/heck-mode.html', context)
 
 
 @login_required
@@ -44,4 +76,4 @@ def submit_high_score(request):
         return redirect('leaderboard')  
     
     # If not a POST request, redirect back to the game
-    return redirect('easy')  
+    return redirect('home')  
