@@ -17,18 +17,11 @@ class LeaderboardView(View):
         heck_leaderboard = HighScore.objects.filter(difficulty='Heck').order_by('-score')[:10]
 
         return render(request, self.template_name, {
-<<<<<<< HEAD
             'easy_leaderboard': easy_leaderboard,
             'hard_leaderboard': hard_leaderboard,
             'heck_leaderboard': heck_leaderboard,
         })
         return render(request, 'bonk_profile/global_leaderboard.html', context)
-=======
-        'easy_leaderboard': easy_leaderboard,
-        'hard_leaderboard': hard_leaderboard,
-        'heck_leaderboard': heck_leaderboard,
-    })
->>>>>>> main
 
 def profile_view(request):
     try:
