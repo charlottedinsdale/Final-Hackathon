@@ -36,7 +36,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['8000-charlottedi-finalhackat-n7sqyoyl5vj.ws.codeinstitute-ide.net',
                  '8000-charlottedi-finalhackat-wy0ha11e05j.ws.codeinstitute-ide.net',
                  'bonk-it-4b634a86c337.herokuapp.com',
-                 'bonk-it-4b634a86c337.herokuapp.com','localhost'
+                 'bonk-it-4b634a86c337.herokuapp.com', 
+                 'localhost'
 ]
 
 CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 
@@ -91,6 +92,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
+
             ],
         },
     },

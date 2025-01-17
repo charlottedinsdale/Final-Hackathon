@@ -15,6 +15,17 @@ a {
     text-decoration: none;
 }
 
+.main-btn {
+    background-color: #1fee53;
+    color: #7a0694;
+}
+
+.main-btn:hover, .main-btn:focus {
+    color: #05f140;
+    background-color: #7a0694;
+}
+
+
 /*--- Header and Navbar --*/
 #bonk-title {
     color:#05f140;
@@ -45,6 +56,11 @@ a {
     color:#05f140;
 }
 
+.nav-link.active {
+    font-weight: 600;
+    color: #05f140 !important;
+}
+
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(5,241,64)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
@@ -70,47 +86,71 @@ i:hover {
 
 /*--- Game Page --*/
 #game-container{
-    
     width: 100%;
 }
 .game-row{
     height: 33%;
 }
+#game-instruction{
+    text-align: center;
+}
 .btn-col{
     align-items: center;
     justify-content: center;
 }
-.btn-pink,
-.btn-blue,
-.btn-green,
-.btn-red {
+#btn-pink,
+#btn-blue,
+#btn-green,
+#btn-red {
     min-width: 14vw;
     min-height: 7vw;
     max-width: 25vw;
     max-height: 10vw;
 }
-.btn-bonk {
+#btn-bonk{
     min-width: 15vw;
     min-height: 15vw;
     max-width: 30vw;
     max-height: 30vw;
-    background-color: #7a0694;
 }
-
+.btn-bonk {
+    
+    background-color: #7a0694;
+   
+}
+.prompt-btn-bonk {
+    
+    color: #7a0694;
+}
 
 .btn-pink{
     background-color: #FF73b7;
 }
+.prompt-btn-pink {
+    
+    color: #FF73b7;
+}
 .btn-blue{
     background-color: #72F6f8;
+}
+.prompt-btn-blue {
+    
+    color: #72F6f8;
 }
 .btn-green{
     background-color: #05f140;
 }
+.prompt-btn-green {
+    
+    color: #05f140;
+}
 .btn-red{
     background-color: #f61111;
 }
-
+.prompt-btn-red {
+    
+    color: #f61111;
+}
 
 
 

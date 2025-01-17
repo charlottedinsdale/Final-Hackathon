@@ -3,39 +3,103 @@
 
 {% block content %}
 <div id="game-container" class="container">
-    <div class="row g-0 instruction-row">
-        <h2 id="game-instruction" class="text-center">
-            Instruction
-        </h2>
-    </div>
-    <div class="row g-0 game-row">
-        <div class="col btn-col d-flex">
-            <button class="btn btn-success btn-red"><button>
+    <div class="row g-0 instruction-row pt-3">
+
+        <div class="col">
+            <button id="start-button" class="btn btn-primary">Start game</button>
         </div>
-        <div class="col btn-col d-flex">
-        <button class="btn btn-success btn-pink"><button>
-        </div>
-    </div>
-    <div class="row g-0 game-row">
+
+        <div class="col">
+            <h2 id="game-instruction" class="game-instruction">
+                Instruction
+            </h2>
+        </div> 
+
         <div class="col">
         
-        </div>
-        <div class="col btn-col d-flex">
-        <button class="btn btn-success btn-bonk"><button>
-        </div>
-        <div class="col">
         
         </div>
     </div>
     <div class="row g-0 game-row">
         <div class="col btn-col d-flex">
-        <button class="btn btn-success btn-blue"><button>
+            <button id="btn-red" class="btn btn-success btn-red"></button>
+        </div>
+        <div  class="col btn-col d-flex">
+        <button id="btn-pink" class="btn btn-success btn-pink"></button>
+        </div>
+    </div>
+    <div class="row g-0 game-row">
+        <div class="col">
+            <p>
+                Score: 
+                <span id="current-score">0</span>
+            </p>
         </div>
         <div class="col btn-col d-flex">
-        <button class="btn btn-success btn-green"><button>
+        <button id="btn-bonk" class="btn btn-success btn-bonk"></button>
+        </div>
+        <div class="col">
+            {% if user.is_authenticated %}
+                {% if highscores %}
+                    {% for score in highscores %}
+                        {% if score.difficulty == 'EASY' %}
+                            <p>Score: <span id="high-score">{{ score.score }}</span></p>
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                <p> HighScore: <span id="high-score"> 0 </span></p>
+                {% endif %}
+            {% else %}
+            <p>HighScore: <span id="high-score"> 0 </span></p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row g-0 game-row">
+        <div class="col btn-col d-flex">
+        <button id="btn-blue" class="btn btn-success btn-blue"></button>
+        </div>
+        <div class="col btn-col d-flex">
+        <button id="btn-green" class="btn btn-success btn-green"></button>
         </div>
     </div>
 </div>
+
+
+<div class="modal fade" id="game-over-modal"  role="dialog" aria-labelledby="gameOverModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Game Over!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <p>Your final score: <span id="final-score"></span></p>
+        
+            <div id="high-score-content" style="display: none;">
+                <p>Congratulations! You've beaten your previous high score!</p>
+                <form id="high-score-form" method="post" action="{% url 'submit_high_score' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="username" value="{{ request.user.username }}">
+                    <input type="hidden" id="score-input" name="score" value="">
+                    <input type="hidden" name="difficulty" value="easy">
+                    <button type="submit">Submit New High Score</button>
+                </form>
+            </div>
+            
+            <div id="low-score-content" style="display: none;">
+                <p>Keep practicing! Your current high score is <span id="user-high-score"></span>.</p>
+                
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button id="play-again" type="submit" class="btn btn-primary">Play again</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 {% endblock content %}
 

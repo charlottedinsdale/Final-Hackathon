@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="profile-update-container">
+    <h2 class="slackey">Update Your Profile</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn main-btn">Update Profile</button>
+    </form>
+</div>
+{% endblock %}

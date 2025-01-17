@@ -7,11 +7,20 @@
     {% if user.is_authenticated %}
     <img class="profile-pic" src="{{ user.bonkprofile.profile_pic.url }}" alt="{{user.username}}'s profile picture">
     <h2 class="slackey">{{ user.username }}</h2>
+    <a href="{% url 'update_profile' %}" class="btn main-btn">Update Profile Pic</a>
+    <h5 class="slackey">Your Highscores:</h5>
+    <h6>Heck:</h6>
+    <h6>Hard:</h6>
+    <h6>Easy:</h6>
+    <h5 class="slackey">Total Games: {{ bonkprofile.total_games }}</h5>
     {% else %}
-    <h2 class="slackey">Bonk! You're not logged in please 
-        <a href=#>Log in</a> or 
-        <a href=#>Sign Up</a> to create your profile!
+    <h2 class="slackey">Bonk! You're not logged in, please 
+        <a href="{% url 'account_login' %}">Log in</a> or 
+        <a href="{% url 'account_signup' %}">Sign Up</a> to create your profile!
     </h2>
+    <p>Bonk it! Users can store and view their high scores and get on the leaderboard! 
+        <a href="{% url 'account_signup' %}">Sign Up</a> now to start competing!
+    </p>
     {% endif %}
 </div>
 

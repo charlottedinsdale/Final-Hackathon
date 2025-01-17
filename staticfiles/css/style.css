@@ -15,6 +15,17 @@ a {
     text-decoration: none;
 }
 
+.main-btn {
+    background-color: #1fee53;
+    color: #7a0694;
+}
+
+.main-btn:hover, .main-btn:focus {
+    color: #05f140;
+    background-color: #7a0694;
+}
+
+
 /*--- Header and Navbar --*/
 #bonk-title {
     color:#05f140;
@@ -45,6 +56,11 @@ a {
     color:#05f140;
 }
 
+.nav-link.active {
+    font-weight: 600;
+    color: #05f140 !important;
+}
+
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(5,241,64)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
@@ -70,7 +86,6 @@ i:hover {
 
 /*--- Game Page --*/
 #game-container{
-    
     width: 100%;
 }
 .game-row{
@@ -115,6 +130,34 @@ i:hover {
 
 
 /*--- Global Leaderboard Page --*/
+h1 {
+    margin-top: 20px;
+}
+
+.card-header{
+    background-color: #fff;
+}
+.easy-section{
+    background-color: #dd3cc2ee
+}
+.hard-section{
+    background-color: #1f68ee
+
+}
+
+.heck-section{
+    background-color: #1fee53
+}
+
+td{
+    font-family:"Iceland", serif;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+th{
+    font-size: 1.5rem;
+}
 
 /*--- Profile Page --*/
 .profile-container {
