@@ -122,6 +122,11 @@ i:hover {
     color: #7a0694;
 }
 
+.prompt-btn-bonk {
+    
+    color: #7a0694;
+}
+
 .prompt-btn-pink {
     
     color: #FF73b7;
@@ -285,8 +290,6 @@ td{
 th{
     font-size: 1.8rem;
     background-color: #7a0694;
-    
-    
 }
 
 .highest-score {
@@ -314,6 +317,21 @@ th{
     border: 1.5px solid #7a0694;
 }
 
+.highest-score {
+   font-weight: bold;
+   text-transform: uppercase;
+
+}
+
+@media (max-width: 550px) {
+    .leader-header{
+        font-family: 'Slackey', sans-serif;
+        font-weight: bolder;
+        font-size: 2rem;
+        color:#05f140;
+        -webkit-text-stroke: 0.1px black;
+}
+}
 /*--- Profile Page --*/
 .profile-container {
     width: 100%;
