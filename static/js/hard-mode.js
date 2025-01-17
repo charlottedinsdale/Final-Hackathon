@@ -142,7 +142,50 @@ document.getElementById('play-again').addEventListener('click', function() {
     startGame();
   });
 
+  document.addEventListener('keydown', function(event) {
+    switch(event.key.toLowerCase()) {
+        case 'q':
+            document.getElementById('btn-red').click();
+            break;
+        case 'w':
+            document.getElementById('btn-pink').click();
+            break;
+        case 'a':
+            document.getElementById('btn-blue').click();
+            break;
+        case 's':
+            document.getElementById('btn-green').click();
+            break;
+    }
+});
 // Add click listeners to game buttons
 prompts.forEach(prompt => {
     document.getElementById(prompt.buttonId).addEventListener("click", () => handleButtonClick(prompt.buttonId));
+});
+
+document.getElementById('btn-red').onclick = function() {
+    console.log('Q button clicked');
+    // Add your desired action here
+};
+
+document.getElementById('btn-pink').onclick = function() {
+    console.log('W button clicked');
+    // Add your desired action here
+};
+
+document.getElementById('btn-blue').onclick = function() {
+    console.log('A button clicked');
+    // Add your desired action here
+};
+
+document.getElementById('btn-green').onclick = function() {
+    console.log('S button clicked');
+    // Add your desired action here
+};
+
+document.addEventListener('keydown', function(event) {
+    if (event.code === 'Space') {
+        event.preventDefault();
+        document.getElementById('btn-bonk').click();
+    }
 });

@@ -41,20 +41,20 @@
             {% if user.is_authenticated %}
                 {% if highscores.exists %}
                     {% for score in highscores %}
-                        {% if score.difficulty == 'Hard' %}
-                            <p class="score-para mb-0"><span id="high-score" data-high-score="{{ score.score }}"> {{ score.score }}</span></p><br>
+                        {% if score.difficulty == 'Easy' %}
+                            <p class="score-para mb-0"><span id="high-score" data-high-score="{{ score.score }}"> {{ score.score }} </span></p><br>
                             <p class="score-para ">HighScore</p>
-                        
+                            
                         {% endif %}
                     {% empty %}
-                    <p class="score-para mb-0"><span id="high-score" data-high-score="0"> 0</span></p><br>
-                    <p class="score-para ">HighScore</p>
+                        <p class="score-para mb-0"><span id="high-score" data-high-score="0"> 0</span></p><br>
+                        <p class="score-para ">HighScore</p>
                     {% endfor %}
                 {% else %}
-                <p class="score-para"> HighScore: <span id="high-score"> 0 </span></p>
+                    <p class="score-para"> HighScore: <span id="high-score"> 0 </span></p>
                 {% endif %}
             {% else %}
-            <p class="score-para">HighScore: <span id="high-score"> 0 </span></p>
+                <p class="score-para">HighScore: <span id="high-score"> 0 </span></p>
             {% endif %}
         </div>
     </div>
