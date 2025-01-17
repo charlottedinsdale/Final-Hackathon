@@ -38,7 +38,8 @@ const gameOverModal = new bootstrap.Modal(document.getElementById('game-over-mod
 const finalScoreSpan = document.getElementById("final-score");
 const highScoreForm = document.getElementById("high-score-form");
 const userHighScore = parseInt(document.getElementById('high-score').dataset.highScore);
-
+const soundUrl = document.getElementById('soundScript').getAttribute('data-sound-url');
+const bonkSound = new Audio(soundUrl);
 // Start game function
 function startGame() {
     score = 0;
@@ -121,6 +122,9 @@ function handleButtonClick(buttonId) {
         score++;
         updateScore();
         newPrompt();
+        if (buttonId === "btn-bonk"){
+            bonkSound.currentTime = 0; // Reset audio to start
+            bonkSound.play();}
     } else {
         endGame();
     }
