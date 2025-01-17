@@ -38,7 +38,8 @@ const gameOverModal = new bootstrap.Modal(document.getElementById('game-over-mod
 const finalScoreSpan = document.getElementById("final-score");
 const highScoreForm = document.getElementById("high-score-form");
 const userHighScore = parseInt(document.getElementById('high-score').dataset.highScore);
-
+const soundUrl = document.getElementById('soundScript').getAttribute('data-sound-url');
+const bonkSound = new Audio(soundUrl);
 // Start game function
 function startGame() {
     score = 0;
@@ -118,6 +119,9 @@ function handleButtonClick(buttonId) {
         score++;
         updateScore();
         newPrompt();
+        if (buttonId === "btn-bonk"){
+            bonkSound.currentTime = 0; // Reset audio to start
+            bonkSound.play();}
     } else {
         endGame();
     }
@@ -132,12 +136,14 @@ function updateScore() {
 startButton.addEventListener("click", function(){
     footer.style.display = "none";
     navbar.style.display = "none";
+    incrementTotalGames();
     startGame();
 });
 document.getElementById('play-again').addEventListener('click', function() {
     let modal = bootstrap.Modal.getInstance(document.getElementById('game-over-modal'));
     footer.style.display = "none";
     navbar.style.display = "none";
+    incrementTotalGames();
     modal.hide();
     startGame();
   });
@@ -189,3 +195,26 @@ document.addEventListener('keydown', function(event) {
         document.getElementById('btn-bonk').click();
     }
 });
+
+function incrementTotalGames(){
+    fetch('/game/increment-total-games/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken') // Include CSRF token if using Django
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Total games incremented:', data.total_games);
+        // Optionally update the UI to reflect the new total
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+};
+
+// Function to get CSRF token (if using Django)
+function getCookie(name) {
+    const cookieValue = document.cookie.split('; ').find(row => row.startsWith(name + '='));
+    return cookieValue ? decodeURIComponent(cookieValue.split('=')[1]) : null;}
