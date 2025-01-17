@@ -2,7 +2,58 @@
 {% load static %}
 
 {% block content %}
+<div id="main-header-page">
+    <!-- Title -->
+    <h1 class="main-title-page slackey text-center">
+        Bonk it
+    </h1>
 
+    <!-- Main Menu -->
+    <div id="main-menu" class="container mt-4">
+        <div class="row justify-content-center">
+            <!-- Quick Play Easy -->
+            <div class="col-12 col-md-4 mb-3 d-flex justify-content-center">
+                <a href="{% url 'easy' %}">
+                    <button type="button" class="iceland btn btn-bonk btn-primary "> 
+                        Quick Play: Easy Mode!
+                    </button>
+                </a>
+            </div>
+
+            <!-- Sign Up -->
+            <div class="col-12 col-md-4 mb-3 d-flex justify-content-center">
+                <a href="{% url 'account_signup' %}">
+                    <button type="button" class="iceland btn btn-bonk btn-primary">Sign UP
+                    </button>
+                </a>
+            </div>
+
+            <!-- Leaderboard -->
+            <div class="col-12 col-md-4 mb-3 d-flex justify-content-center">
+                <a href="{% url 'leaderboard' %}">
+                    <button type="button" class="iceland btn btn-bonk btn-primary">
+                        Leaderboard
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+     
 {% endblock %}
-    
+
+
+
+<button type="button" class="btn btn-bonk btn-primary" style="
+height: 5rem;
+width: 20rem;
+color: #05f140;
+">Leaderboard</button>
+
+
 
