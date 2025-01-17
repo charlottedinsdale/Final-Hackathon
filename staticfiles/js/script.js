@@ -1,11 +1,21 @@
 // Game configuration
 
-const TIME_TO_ANSWER = 3000; 
+
+function calculateTimerDuration(score) {
+    const baseTime = 2000; // Start with 2 seconds
+    const minTime = 1000; // Minimum time of 1 second
+    const decreaseRate = 25; // Decrease by 50ms for each point
+    
+    let calculatedTime = baseTime - (score * decreaseRate);
+    return Math.max(calculatedTime, minTime); // Ensure it doesn't go below minTime
+}
+// const userHighScore = {{ user_high_score }};
 
 // Game state
 let score = 0;
 let promptTimer;
 let currentPrompt;
+let previousPrompt
 let gameActive = false;
 
 // Available prompts and their corresponding button ids
@@ -19,8 +29,15 @@ const prompts = [
 
 // DOM elements
 const gameInstructionDiv = document.getElementById("game-instruction");
+const navbar = document.getElementById("navbar");
+const footer = document.getElementById("footer");
 const currentScoreSpan = document.getElementById("current-score");
 const startButton = document.getElementById("start-button");
+const playAgainButton = document.getElementById("play-again")
+const gameOverModal = new bootstrap.Modal(document.getElementById('game-over-modal'));
+const finalScoreSpan = document.getElementById("final-score");
+const highScoreForm = document.getElementById("high-score-form");
+const userHighScore = parseInt(document.getElementById('high-score').dataset.highScore);
 
 // Start game function
 function startGame() {
@@ -28,10 +45,15 @@ function startGame() {
     gameActive = true;
     updateScore();
     startButton.disabled = true;
+    startButton.style.display = "none"
     gameInstructionDiv.textContent = "Get Ready!"
-    setTimeout(newPrompt, 1000);
+    previousPrompt = null;
+    setTimeout(newPrompt, 2000);
    
 }
+
+
+
 
 // End game function
 function endGame() {
@@ -39,7 +61,34 @@ function endGame() {
     clearTimeout(promptTimer);
     gameInstructionDiv.textContent = "Game Over! Final Score: " + score;
     startButton.disabled = false;
+    footer.style.display = "flex";
+    navbar.style.display = "block";
+    // Update final score displays
+    finalScoreSpan.textContent = score;
+    document.getElementById("score-input").value = score;
+    const highScoreElement = document.getElementById("user-high-score");
+    const displayHighScore = isNaN(userHighScore) ? 0 : userHighScore;
+    // Show/hide appropriate content based on score
+    if (score > displayHighScore) {
+        console.log(displayHighScore)
+        document.getElementById("high-score-content").style.display = "block";
+        document.getElementById("low-score-content").style.display = "none";
+        document.getElementById("submit-score").style.display = "block";
+        document.getElementById("play-again").style.display = "none";
+    } else {
+        document.getElementById("high-score-content").style.display = "none";
+        document.getElementById("low-score-content").style.display = "block";
+        document.getElementById("submit-score").style.display = "none";
+        document.getElementById("play-again").style.display = "block";
+        document.getElementById("user-high-score").textContent = userHighScore;
+        highScoreElement.textContent = displayHighScore;
+    }
+    startButton.style.display = "flex"
+    // Show the Bootstrap modal
+    gameOverModal.show();
 }
+
+
 
 // Generate new prompt
 function newPrompt() {
@@ -50,10 +99,13 @@ function newPrompt() {
     previousPrompt = currentPrompt;
     
     gameInstructionDiv.textContent = currentPrompt.text;
-    
+    gameInstructionDiv.className = `prompt-${currentPrompt.buttonId}`
+
+    const timerDuration = calculateTimerDuration(score);
+
     promptTimer = setTimeout(() => {
         if (gameActive) endGame();
-    }, TIME_TO_ANSWER);
+    }, timerDuration);
 }
 
 // Handle button clicks
@@ -77,9 +129,64 @@ function updateScore() {
 }
 
 // Event listeners
-startButton.addEventListener("click", startGame);
+startButton.addEventListener("click", function(){
+    footer.style.display = "none";
+    navbar.style.display = "none";
+    startGame();
+});
+document.getElementById('play-again').addEventListener('click', function() {
+    let modal = bootstrap.Modal.getInstance(document.getElementById('game-over-modal'));
+    footer.style.display = "none";
+    navbar.style.display = "none";
+    modal.hide();
+    startGame();
+  });
+
+  document.addEventListener('keydown', function(event) {
+    switch(event.key.toLowerCase()) {
+        case 'q':
+            document.getElementById('btn-red').click();
+            break;
+        case 'w':
+            document.getElementById('btn-pink').click();
+            break;
+        case 'a':
+            document.getElementById('btn-blue').click();
+            break;
+        case 's':
+            document.getElementById('btn-green').click();
+            break;
+    }
+});
 
 // Add click listeners to game buttons
 prompts.forEach(prompt => {
     document.getElementById(prompt.buttonId).addEventListener("click", () => handleButtonClick(prompt.buttonId));
+});
+
+document.getElementById('btn-red').onclick = function() {
+    console.log('Q button clicked');
+    // Add your desired action here
+};
+
+document.getElementById('btn-pink').onclick = function() {
+    console.log('W button clicked');
+    // Add your desired action here
+};
+
+document.getElementById('btn-blue').onclick = function() {
+    console.log('A button clicked');
+    // Add your desired action here
+};
+
+document.getElementById('btn-green').onclick = function() {
+    console.log('S button clicked');
+    // Add your desired action here
+};
+
+document.addEventListener('keydown', function(event) {
+    if (event.code === 'Space') {
+        event.preventDefault();
+        document.getElementById('btn-bonk').click();
+    }
 });

@@ -24,8 +24,8 @@ class LeaderboardView(View):
         })
         return render(request, 'bonk_profile/global_leaderboard.html', context)
 
-       
 
+       
 
 def profile_view(request):
     try:
@@ -35,6 +35,11 @@ def profile_view(request):
     return render(request, 'bonk_profile/bonk_profile.html', {
         'bonkprofile': bonk_profile,
     })
+    def save(self, *args, **kwargs):
+        if not self.profile_pic:
+            self.profile_pic = 'Bonk-profile-default_fjze4j'
+        super(BonkProfile, self).save(*args, **kwargs)
+
 
 def update_profile(request):
     user_profile = request.user.bonkprofile
@@ -48,3 +53,12 @@ def update_profile(request):
         form = BonkProfileForm(instance=user_profile)
 
     return render(request, 'bonk_profile/update_profile.html', {'form': form})
+
+def delete_profile_pic(request):
+    user_profile = request.user.bonkprofile
+
+    # Set the profile picture back to the default image
+    user_profile.profile_pic = 'Bonk-profile-default_fjze4j'  # Cloudinary public ID of the default image
+    user_profile.save()
+
+    return redirect('profile')
