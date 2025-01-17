@@ -32,32 +32,44 @@ def get_user_rank(user, difficulty):
     return None
 
 def profile_view(request):
-    try:
-        bonk_profile = request.user.bonkprofile 
-    except BonkProfile.DoesNotExist:
-        bonk_profile = None 
+    if request.user.is_authenticated:
+        try:
+            bonk_profile = request.user.bonkprofile 
+        except BonkProfile.DoesNotExist:
+            bonk_profile = None 
 
-    heck_highscore = HighScore.objects.filter(username=request.user, difficulty='Heck').order_by('-score').first()
-    hard_highscore = HighScore.objects.filter(username=request.user, difficulty='Hard').order_by('-score').first()
-    easy_highscore = HighScore.objects.filter(username=request.user, difficulty='Easy').order_by('-score').first()
-    
-    heck_rank = get_user_rank(request.user, 'Heck') if heck_highscore else None
-    hard_rank = get_user_rank(request.user, 'Hard') if hard_highscore else None
-    easy_rank = get_user_rank(request.user, 'Easy') if easy_highscore else None
+        heck_highscore = HighScore.objects.filter(username=request.user, difficulty='Heck').order_by('-score').first()
+        hard_highscore = HighScore.objects.filter(username=request.user, difficulty='Hard').order_by('-score').first()
+        easy_highscore = HighScore.objects.filter(username=request.user, difficulty='Easy').order_by('-score').first()
+        
+        heck_rank = get_user_rank(request.user, 'Heck') if heck_highscore else None
+        hard_rank = get_user_rank(request.user, 'Hard') if hard_highscore else None
+        easy_rank = get_user_rank(request.user, 'Easy') if easy_highscore else None
 
-    return render(request, 'bonk_profile/bonk_profile.html', {
-        'bonkprofile': bonk_profile,
-        'heck_highscore': heck_highscore,
-        'hard_highscore': hard_highscore,
-        'easy_highscore': easy_highscore,
-        'heck_rank': heck_rank,
-        'hard_rank': hard_rank,
-        'easy_rank': easy_rank,
-    })
-    def save(self, *args, **kwargs):
-        if not self.profile_pic:
-            self.profile_pic = 'Bonk-profile-default_fjze4j'
-        super(BonkProfile, self).save(*args, **kwargs)
+        return render(request, 'bonk_profile/bonk_profile.html', {
+            'bonkprofile': bonk_profile,
+            'heck_highscore': heck_highscore,
+            'hard_highscore': hard_highscore,
+            'easy_highscore': easy_highscore,
+            'heck_rank': heck_rank,
+            'hard_rank': hard_rank,
+            'easy_rank': easy_rank,
+        })
+        def save(self, *args, **kwargs):
+            if not self.profile_pic:
+                self.profile_pic = 'Bonk-profile-default_fjze4j'
+            super(BonkProfile, self).save(*args, **kwargs)
+    else:
+        # If the user is not authenticated, render a different template or pass appropriate data
+        return render(request, 'bonk_profile/bonk_profile.html', {
+            'bonkprofile': None,
+            'heck_highscore': None,
+            'hard_highscore': None,
+            'easy_highscore': None,
+            'heck_rank': None,
+            'hard_rank': None,
+            'easy_rank': None,
+        })
 
 
 def update_profile(request):
