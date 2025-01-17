@@ -25,12 +25,11 @@
     </div>
     <div class="row g-0 game-row">
         <div class="col d-flex flex-column align-items-center justify-content-center">
-            
-            <p class="score-para mb-0"><span id="current-score">0</span></p>
             <p class="score-para mb-0">
                 Score: 
                 
             </p>
+            <p class="score-para mb-0"><span id="current-score">0</span></p>
         </div>
         <div class="col btn-col d-flex justify-content-center">
         <button id="btn-bonk" class="btn btn-success btn-bonk">
@@ -40,13 +39,15 @@
         <div class="col d-flex flex-column align-items-center justify-content-center">
             {% if user.is_authenticated %}
                 {% if highscore %}
+                        <p class="score-para mb-0">HighScore:</p>
                         <p class="score-para mb-0"><span id="high-score" data-high-score="{{highscore}}"> {{highscore}}</span></p><br>
-                        <p class="score-para ">HighScore</p>
                 {% else %}
-                    <p class="score-para"> HighScore: <span id="high-score"> 0 </span></p>
+                    <p class="score-para"> HighScore:</p>
+                    <p><span id="high-score"> 0 </span></p>
                 {% endif %}
             {% else %}
-                <p class="score-para">HighScore: <span id="high-score"> 0 </span></p>
+                <p class="score-para">HighScore:</p>
+                <p><span id="high-score"> 0 </span></p>
             {% endif %}
         </div>
     </div>

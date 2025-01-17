@@ -33,6 +33,7 @@ const navbar = document.getElementById("navbar");
 const footer = document.getElementById("footer");
 const currentScoreSpan = document.getElementById("current-score");
 const startButton = document.getElementById("start-button");
+const bonkButton = document.getElementById("btn-bonk")
 const playAgainButton = document.getElementById("play-again")
 const gameOverModal = new bootstrap.Modal(document.getElementById('game-over-modal'));
 const finalScoreSpan = document.getElementById("final-score");
@@ -48,6 +49,7 @@ function startGame() {
     updateScore();
     startButton.disabled = true;
     startButton.style.display = "none"
+    bonkButton.innerHTML = "Bonk it!"
     gameInstructionDiv.textContent = "Get Ready!"
     previousPrompt = { text: "BONK IT!", buttonId: "btn-bonk"};
     setTimeout(newPrompt, 2000);
