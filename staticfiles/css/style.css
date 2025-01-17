@@ -26,6 +26,16 @@ a {
     background-color: #7a0694;
 }
 
+.main-btn-inverted {
+    color: #1fee53;
+    background-color: #7a0694;
+}
+
+.main-btn-inverted:hover, .main-btn-inverted:focus {
+    background-color: #05f140;
+    color: #7a0694;
+}
+
 .outline-text {
     color:#05f140;
     -webkit-text-stroke: 0.5px black;
