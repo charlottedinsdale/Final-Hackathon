@@ -47,7 +47,7 @@ function startGame() {
     startButton.disabled = true;
     startButton.style.display = "none"
     gameInstructionDiv.textContent = "Get Ready!"
-    previousPrompt = null;
+    previousPrompt = { text: "BONK IT!", buttonId: "btn-bonk"};
     setTimeout(newPrompt, 2000);
    
 }
@@ -96,7 +96,10 @@ function newPrompt() {
     
     let availablePrompts = prompts.filter(prompt => prompt !== previousPrompt);
     currentPrompt = availablePrompts[Math.floor(Math.random() * availablePrompts.length)];
+
+    // document.getElementById(previousPrompt.buttonId).classList.remove('btn-glow');
     previousPrompt = currentPrompt;
+    // document.getElementById(currentPrompt.buttonId).classList.add('btn-glow')
     
     gameInstructionDiv.textContent = currentPrompt.text;
     gameInstructionDiv.className = `prompt-${currentPrompt.buttonId}`

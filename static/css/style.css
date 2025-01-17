@@ -223,7 +223,14 @@ i:hover {
     background-color: #5c0a0a;
 }
 
-
+/* .btn-glow{
+    background: 
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.37) 0%, rgba(255, 255, 255, 0.13) 30%, rgba(255,255,255,0) 60%),
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.411) 0%, rgba(255, 255, 255, 0.212) 10%, rgba(0,255,0,0) 40%);
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 50%;
+      
+} */
 
 /*--- Global Leaderboard Page --*/
 .card{
