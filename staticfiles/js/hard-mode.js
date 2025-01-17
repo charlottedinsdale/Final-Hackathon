@@ -2,9 +2,9 @@
 
 
 function calculateTimerDuration(score) {
-    const baseTime = 2000; // Start with 2 seconds
-    const minTime = 1000; // Minimum time of 1 second
-    const decreaseRate = 25; // Decrease by 50ms for each point
+    const baseTime = 1500; // Start with 1.5 seconds
+    const minTime = 800; // Minimum time of 0.8 seconds
+    const decreaseRate = 35; // Decrease by 50ms for each point
     
     let calculatedTime = baseTime - (score * decreaseRate);
     return Math.max(calculatedTime, minTime); // Ensure it doesn't go below minTime
@@ -99,7 +99,7 @@ function newPrompt() {
     previousPrompt = currentPrompt;
     
     gameInstructionDiv.textContent = currentPrompt.text;
-    gameInstructionDiv.className = `prompt-${currentPrompt.buttonId}`
+    // gameInstructionDiv.className = `prompt-${currentPrompt.buttonId}`
 
     const timerDuration = calculateTimerDuration(score);
 
@@ -158,7 +158,6 @@ document.getElementById('play-again').addEventListener('click', function() {
             break;
     }
 });
-
 // Add click listeners to game buttons
 prompts.forEach(prompt => {
     document.getElementById(prompt.buttonId).addEventListener("click", () => handleButtonClick(prompt.buttonId));
