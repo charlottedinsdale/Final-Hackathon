@@ -332,6 +332,15 @@ th{
         -webkit-text-stroke: 0.1px black;
 }
 }
+
+.profile-pic-leaderboard {
+    float: left;
+    width: 25px;            
+    height: 25px;           
+    border-radius: 50%;      
+    object-fit: cover;       
+    border: 1.5px solid #7a0694;
+}
 /*--- Profile Page --*/
 .profile-container {
     width: 100%;
