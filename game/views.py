@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from bonk_profile.models import HighScore
+from bonk_profile.models import HighScore, BonkProfile
 # Create your views here.
 
 def home(request):
@@ -100,3 +100,15 @@ def submit_high_score(request):
     
     # If not a POST request, redirect back to the game
     return redirect('home')  
+
+from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def increment_total_games(request):
+    if request.method == 'POST':
+        request.user.bonkprofile.total_games += 1
+        request.user.bonkprofile.save()
+        return JsonResponse({'total_games': request.user.bonkprofile.total_games})
+    
+    return JsonResponse({'error': 'Invalid request'}, status=400)
