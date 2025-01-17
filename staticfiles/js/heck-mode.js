@@ -2,9 +2,9 @@
 
 
 function calculateTimerDuration(score) {
-    const baseTime = 2000; // Start with 2 seconds
-    const minTime = 1000; // Minimum time of 1 second
-    const decreaseRate = 25; // Decrease by 50ms for each point
+    const baseTime = 2000; // Start with 1.5 seconds
+    const minTime = 600; // Minimum time of 0.8 seconds
+    const decreaseRate = 50; // Decrease by 50ms for each point
     
     let calculatedTime = baseTime - (score * decreaseRate);
     return Math.max(calculatedTime, minTime); // Ensure it doesn't go below minTime
@@ -99,7 +99,15 @@ function newPrompt() {
     previousPrompt = currentPrompt;
     
     gameInstructionDiv.textContent = currentPrompt.text;
-    gameInstructionDiv.className = `prompt-${currentPrompt.buttonId}`
+    // Get a list of button IDs excluding the current prompt's button ID
+    const otherButtonIds = prompts
+    .filter(prompt => prompt.buttonId !== currentPrompt.buttonId)
+    .map(prompt => prompt.buttonId);
+
+    // Select a random button ID from the remaining options
+    const randomButtonId = otherButtonIds[Math.floor(Math.random() * otherButtonIds.length)];
+    gameInstructionDiv.className = `prompt-${randomButtonId}`
+    
 
     const timerDuration = calculateTimerDuration(score);
 

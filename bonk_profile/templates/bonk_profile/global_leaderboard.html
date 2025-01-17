@@ -32,7 +32,7 @@
                             {% for score in heck_leaderboard %}
                             <tr class="{% if forloop.first %} highest-score{% endif %}">
                                     <td>{{ forloop.counter }}</td>
-                                    <td>{{ score.username }}</td>
+                                    <td><img class="profile-pic-leaderboard" src="{{ score.username.bonkprofile.profile_pic.url }}" alt="{{user.username}}'s profile picture">{{ score.username }}</td>
                                     <td>{{ score.score }}</td>
                                 </tr>
                             {% empty %}
@@ -66,7 +66,7 @@
                     <tr class="{% if forloop.first %} highest-score{% endif %}">
                             
                             <td>{{ forloop.counter }}</td>
-                            <td>{{ score.username }}</td>
+                            <td><img class="profile-pic-leaderboard" src="{{ score.username.bonkprofile.profile_pic.url }}" alt="{{user.username}}'s profile picture">{{ score.username }}</td>
                             <td>{{ score.score }}</td>
                         </tr>
                     {% empty %}
@@ -99,7 +99,7 @@
                             {% for score in easy_leaderboard %}
                             <tr class="{% if forloop.first %} highest-score{% endif %}">
                                     <td>{{ forloop.counter }}</td>
-                                    <td>{{ score.username }}</td>
+                                    <td><img class="profile-pic-leaderboard" src="{{ score.username.bonkprofile.profile_pic.url }}" alt="{{user.username}}'s profile picture">{{ score.username }}</td>
                                     <td>{{ score.score }}</td>
                                 </tr>
                             {% empty %}

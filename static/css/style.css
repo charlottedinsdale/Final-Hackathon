@@ -61,8 +61,8 @@ a {
     color: #05f140 !important;
 }
 
-.nav-link:visited {
-    color:#05f140;
+.nav-link:visited, .nav-link.show {
+    color:#05f140 !important;
 }
 
 .navbar-toggler-icon {
@@ -304,6 +304,16 @@ th{
         -webkit-text-stroke: 0.1px black;
 }
 }
+
+.profile-pic-leaderboard {
+    float: left;
+    width: 25px;            
+    height: 25px;           
+    border-radius: 50%;      
+    object-fit: cover;       
+    border: 1.5px solid #7a0694;
+}
+
 /*--- Profile Page --*/
 .profile-container {
     width: 100%;
@@ -322,3 +332,28 @@ th{
 }
 
 /*--- Accounts Pages --*/
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    width: 100%;
+}
+
+.login-card {
+    background: #d487e5;
+	border-radius: 20px;
+	padding: 3rem;
+	width: 100%;
+	max-width: 450px;
+	box-shadow: 0 15px 35px rgba(50, 24, 46, 0.288);
+	position: relative;
+	overflow: hidden;
+}
+
+.login-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
