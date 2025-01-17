@@ -3,16 +3,21 @@
 
 {% block content %}
 <div class="profile-update-container">
-    <h2 class="slackey">Update Your Profile</h2>
-
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn main-btn">Update Picture</button>
-    </form>
+    <h2 class="slackey outline-text">Update Your Profile</h2>
+    <div class="form-container">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="button-container">
+                <button type="submit" class="btn main-btn">Update Picture</button>
+            </div>
+        </form>
+    </div>
     <form method="POST" action="{% url 'delete_profile_pic' %}">
         {% csrf_token %}
-        <button type="submit" class="btn main-btn">Delete Picture</button>
+        <div class="button-container">
+            <button type="submit" class="btn main-btn">Delete Picture</button>
+        </div>
     </form>
 </div>
 {% endblock %}

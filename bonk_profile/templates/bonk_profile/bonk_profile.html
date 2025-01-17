@@ -6,13 +6,13 @@
 <div class="profile-container">
     {% if user.is_authenticated %}
     <img class="profile-pic" src="{{ user.bonkprofile.profile_pic.url }}" alt="{{user.username}}'s profile picture">
-    <h2 class="slackey">{{ user.username }}</h2>
+    <h2 class="slackey outline-text">{{ user.username }}</h2>
     <a href="{% url 'update_profile' %}" class="btn main-btn">Update Profile Pic</a>
     <h5 class="slackey">Your Highscores:</h5>
-    <h6>Heck:</h6>
-    <h6>Hard:</h6>
-    <h6>Easy:</h6>
-    <h5 class="slackey">Total Games: {{ bonkprofile.total_games }}</h5>
+    <h4>Heck: {{ heck_highscore.score }} Rank: {{ heck_rank }}</h4>
+    <h4>Hard: {{ hard_highscore.score }} Rank: {{ hard_rank }} </h4>
+    <h4>Easy: {{ easy_highscore.score }} Rank: {{ easy_rank }} </h4>
+    <h4 class="slackey">Total Games: {{ bonkprofile.total_games }}</h5>
     {% else %}
     <h2 class="slackey">Bonk! You're not logged in, please 
         <a href="{% url 'account_login' %}">Log in</a> or 
