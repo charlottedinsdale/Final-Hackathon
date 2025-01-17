@@ -9,6 +9,7 @@ main {
 
 .slackey {
     font-family: "Slackey", serif;
+    
 }
 
 a {
@@ -90,6 +91,19 @@ a {
 .dropdown-item:hover, .dropdown-item:focus, .dropdown-item.active {
     font-weight: 600;
 }
+
+.large-text {
+    font-size: 30px;
+}
+
+.purple-link {
+    color:#7a0694;
+}
+
+.purple-link:hover {
+    color:#6a0a82;
+}
+
 /*--- Footer --*/
 #footer {
     background-color: #7a0694;
@@ -108,6 +122,45 @@ i:hover {
     color: #05f140;
 }
 /*--- Home Page --*/
+
+.main-title-page {
+    width: 100vw; 
+    margin-top: 100px; 
+    font-size: 8rem; 
+    color: #05f140; 
+    -webkit-text-stroke: 2px black;
+}
+
+#main-header-page {
+    margin-top: 25px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+}
+
+#main-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+ .btn-primary {
+    width: 200px;
+    margin-top: 10px;
+    height: 60px;
+    color:#05f140;
+ }
+
+.page-menu {
+    border: 2px solid black;
+}
+
+.large-btn {
+    width: 200px;
+    height: 100px;
+    font-size: 30px;
+}
 
 /*--- Game Page --*/
 #game-container{
@@ -340,7 +393,11 @@ th{
         color:#05f140;
         -webkit-text-stroke: 0.1px black;
 }
+.main-title-page{
+    font-size: 80px;
 }
+
+    }
 
 .profile-pic-leaderboard {
     float: left;

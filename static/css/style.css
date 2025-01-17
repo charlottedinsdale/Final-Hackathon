@@ -91,6 +91,19 @@ a {
 .dropdown-item:hover, .dropdown-item:focus, .dropdown-item.active {
     font-weight: 600;
 }
+
+.large-text {
+    font-size: 30px;
+}
+
+.purple-link {
+    color:#7a0694;
+}
+
+.purple-link:hover {
+    color:#6a0a82;
+}
+
 /*--- Footer --*/
 #footer {
     background-color: #7a0694;
@@ -110,37 +123,43 @@ i:hover {
 }
 /*--- Home Page --*/
 
-.main-title-page{
+.main-title-page {
     width: 100vw; 
     margin-top: 100px; 
     font-size: 8rem; 
     color: #05f140; 
-    -webkit-text-stroke: 1px black;
+    -webkit-text-stroke: 2px black;
 }
 
-#main-header-page{
-    margin-top: 30px;
+#main-header-page {
+    margin-top: 25px;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-self: center;
 }
 
-#main-menu{
+#main-menu {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    }
+}
 
- .btn-primary{
+ .btn-primary {
     width: 200px;
     margin-top: 10px;
     height: 60px;
     color:#05f140;
  }
 
-.page-menu{
+.page-menu {
     border: 2px solid black;
+}
+
+.large-btn {
+    width: 200px;
+    height: 100px;
+    font-size: 30px;
 }
 
 /*--- Game Page --*/

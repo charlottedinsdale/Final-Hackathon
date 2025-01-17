@@ -14,12 +14,12 @@
     <h4>Easy: {{ easy_highscore.score }} Rank: {{ easy_rank }} </h4>
     <h4 class="slackey">Total Games: {{ bonkprofile.total_games }}</h5>
     {% else %}
-    <h2 class="slackey">Bonk! You're not logged in, please 
-        <a href="{% url 'account_login' %}">Log in</a> or 
-        <a href="{% url 'account_signup' %}">Sign Up</a> to create your profile!
+    <h2 class="slackey text-center">Bonk! You're not logged in, please 
+        <a class="purple-link" href="{% url 'account_login' %}">Log in</a> or 
+        <a class="purple-link" href="{% url 'account_signup' %}">Sign Up</a> to create your profile!
     </h2>
-    <p>Bonk it! Users can store and view their high scores and get on the leaderboard! 
-        <a href="{% url 'account_signup' %}">Sign Up</a> now to start competing!
+    <p class="large-text text-center">Bonk it! Users can store and view their high scores and get on the leaderboard! 
+        <a class="purple-link" href="{% url 'account_signup' %}">Sign Up</a> now to start competing!
     </p>
     {% endif %}
 </div>
