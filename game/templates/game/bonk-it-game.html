@@ -7,7 +7,7 @@
 
         
 
-        <div class="col">
+        <div class="col instruction-container">
             <h2 id="game-instruction" class="game-instruction">
                 Easy Mode
             </h2>
@@ -34,22 +34,16 @@
         </div>
         <div class="col btn-col d-flex justify-content-center">
         <button id="btn-bonk" class=" btn-success btn-bonk p-0">
+           
             <a id="start-button" class=" btn-bonk p-0">Start game</a>
+            
         </button>
         </div>
         <div class="col d-flex flex-column align-items-center justify-content-center">
             {% if user.is_authenticated %}
-                {% if highscores.exists %}
-                    {% for score in highscores %}
-                        {% if score.difficulty == 'Easy' %}
-                            <p class="score-para mb-0"><span id="high-score" data-high-score="{{ score.score }}"> {{ score.score }} </span></p><br>
-                            <p class="score-para ">HighScore</p>
-                            
-                        {% endif %}
-                    {% empty %}
-                        <p class="score-para mb-0"><span id="high-score" data-high-score="0"> 0</span></p><br>
+                {% if highscore %}
+                        <p class="score-para mb-0"><span id="high-score" data-high-score="{{highscore}}"> {{highscore}}</span></p><br>
                         <p class="score-para ">HighScore</p>
-                    {% endfor %}
                 {% else %}
                     <p class="score-para"> HighScore: <span id="high-score"> 0 </span></p>
                 {% endif %}
@@ -104,6 +98,10 @@
       </div>
     </div>
   </div>
+  <audio id="drums" loop>
+    <source src="{% static 'sounds/bonkitdrums.mp3' %}" type="audio/mpeg">
+  </audio>
+  <script id="soundScript" data-sound-url="{% static 'sounds/bonk.mp3' %}"></script>
 
 {% endblock content %}
 

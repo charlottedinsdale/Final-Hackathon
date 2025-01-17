@@ -38,7 +38,8 @@ const gameOverModal = new bootstrap.Modal(document.getElementById('game-over-mod
 const finalScoreSpan = document.getElementById("final-score");
 const highScoreForm = document.getElementById("high-score-form");
 const userHighScore = parseInt(document.getElementById('high-score').dataset.highScore);
-
+const soundUrl = document.getElementById('soundScript').getAttribute('data-sound-url');
+const bonkSound = new Audio(soundUrl);
 // Start game function
 function startGame() {
     score = 0;
@@ -47,7 +48,7 @@ function startGame() {
     startButton.disabled = true;
     startButton.style.display = "none"
     gameInstructionDiv.textContent = "Get Ready!"
-    previousPrompt = null;
+    previousPrompt = { text: "BONK IT!", buttonId: "btn-bonk"};
     setTimeout(newPrompt, 2000);
    
 }
@@ -96,7 +97,10 @@ function newPrompt() {
     
     let availablePrompts = prompts.filter(prompt => prompt !== previousPrompt);
     currentPrompt = availablePrompts[Math.floor(Math.random() * availablePrompts.length)];
+
+    // document.getElementById(previousPrompt.buttonId).classList.remove('btn-glow');
     previousPrompt = currentPrompt;
+    // document.getElementById(currentPrompt.buttonId).classList.add('btn-glow')
     
     gameInstructionDiv.textContent = currentPrompt.text;
     gameInstructionDiv.className = `prompt-${currentPrompt.buttonId}`
@@ -118,6 +122,9 @@ function handleButtonClick(buttonId) {
         score++;
         updateScore();
         newPrompt();
+        if (buttonId === "btn-bonk"){
+            bonkSound.currentTime = 0; // Reset audio to start
+            bonkSound.play();}
     } else {
         endGame();
     }
@@ -190,3 +197,4 @@ document.addEventListener('keydown', function(event) {
         document.getElementById('btn-bonk').click();
     }
 });
+

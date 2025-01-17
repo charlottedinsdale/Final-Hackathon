@@ -7,7 +7,7 @@
 
         
 
-        <div class="col">
+        <div class="col instruction-container">
             <h2 id="game-instruction" class="game-instruction">
                 Oh, heck! This is Hard! :'[
             </h2>
@@ -39,24 +39,14 @@
         </div>
         <div class="col d-flex flex-column align-items-center justify-content-center">
             {% if user.is_authenticated %}
-                {% if highscores.exists %}
-                    {% for score in highscores %}
-                        {% if score.difficulty == 'Heck' %}
-                            <p class="score-para mb-0"><span id="high-score" data-high-score="{{ score.score }}"> {{ score.score }}</span></p><br>
-                            <p class="score-para ">HighScore</p>
-                        
-                        {% endif %}
-                    {% empty %}
-                    <p class="score-para mb-0"><span id="high-score" data-high-score="0"> 0</span></p><br>
-                    <p class="score-para ">HighScore</p>
-                    {% endfor %}
+                {% if highscore %}
+                        <p class="score-para mb-0"><span id="high-score" data-high-score="{{highscore}}"> {{highscore}}</span></p><br>
+                        <p class="score-para ">HighScore</p>
                 {% else %}
-                <p class="score-para mb-0"><span id="high-score" data-high-score="0"> 0</span></p><br>
-                            <p class="score-para ">HighScore</p>
+                    <p class="score-para"> HighScore: <span id="high-score"> 0 </span></p>
                 {% endif %}
             {% else %}
-            <p class="score-para mb-0"><span id="high-score" data-high-score="0"> 0</span></p><br>
-                            <p class="score-para ">HighScore</p>
+                <p class="score-para">HighScore: <span id="high-score"> 0 </span></p>
             {% endif %}
         </div>
     </div>
@@ -106,7 +96,7 @@
       </div>
     </div>
   </div>
-
+  <script id="soundScript" data-sound-url="{% static 'sounds/bonk.mp3' %}"></script>
 {% endblock content %}
 
 {% block customJS %}

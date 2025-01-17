@@ -38,7 +38,9 @@ const gameOverModal = new bootstrap.Modal(document.getElementById('game-over-mod
 const finalScoreSpan = document.getElementById("final-score");
 const highScoreForm = document.getElementById("high-score-form");
 const userHighScore = parseInt(document.getElementById('high-score').dataset.highScore);
-
+const soundUrl = document.getElementById('soundScript').getAttribute('data-sound-url');
+const bonkSound = new Audio(soundUrl);
+// const drums = document.getElementById('drums');
 // Start game function
 function startGame() {
     score = 0;
@@ -47,9 +49,10 @@ function startGame() {
     startButton.disabled = true;
     startButton.style.display = "none"
     gameInstructionDiv.textContent = "Get Ready!"
-    previousPrompt = null;
+    previousPrompt = { text: "BONK IT!", buttonId: "btn-bonk"};
     setTimeout(newPrompt, 2000);
-   
+    
+    // drums.play();
 }
 
 
@@ -83,7 +86,8 @@ function endGame() {
         document.getElementById("user-high-score").textContent = userHighScore;
         highScoreElement.textContent = displayHighScore;
     }
-    startButton.style.display = "flex"
+    startButton.style.display = "flex";
+    // drums.pause();
     // Show the Bootstrap modal
     gameOverModal.show();
 }
@@ -96,7 +100,10 @@ function newPrompt() {
     
     let availablePrompts = prompts.filter(prompt => prompt !== previousPrompt);
     currentPrompt = availablePrompts[Math.floor(Math.random() * availablePrompts.length)];
+
+    // document.getElementById(previousPrompt.buttonId).classList.remove('btn-glow');
     previousPrompt = currentPrompt;
+    // document.getElementById(currentPrompt.buttonId).classList.add('btn-glow')
     
     gameInstructionDiv.textContent = currentPrompt.text;
     gameInstructionDiv.className = `prompt-${currentPrompt.buttonId}`
@@ -118,6 +125,9 @@ function handleButtonClick(buttonId) {
         score++;
         updateScore();
         newPrompt();
+        if (buttonId === "btn-bonk"){
+            bonkSound.currentTime = 0; // Reset audio to start
+            bonkSound.play();}
     } else {
         endGame();
     }
@@ -132,12 +142,14 @@ function updateScore() {
 startButton.addEventListener("click", function(){
     footer.style.display = "none";
     navbar.style.display = "none";
+    incrementTotalGames();
     startGame();
 });
 document.getElementById('play-again').addEventListener('click', function() {
     let modal = bootstrap.Modal.getInstance(document.getElementById('game-over-modal'));
     footer.style.display = "none";
     navbar.style.display = "none";
+    incrementTotalGames();
     modal.hide();
     startGame();
   });
@@ -190,3 +202,26 @@ document.addEventListener('keydown', function(event) {
         document.getElementById('btn-bonk').click();
     }
 });
+
+function incrementTotalGames(){
+    fetch('/game/increment-total-games/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken') // Include CSRF token if using Django
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Total games incremented:', data.total_games);
+        // Optionally update the UI to reflect the new total
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+};
+
+// Function to get CSRF token (if using Django)
+function getCookie(name) {
+    const cookieValue = document.cookie.split('; ').find(row => row.startsWith(name + '='));
+    return cookieValue ? decodeURIComponent(cookieValue.split('=')[1]) : null;}

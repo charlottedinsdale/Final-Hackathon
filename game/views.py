@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.db.models import Max
-from bonk_profile.models import HighScore
+from bonk_profile.models import HighScore, BonkProfile
 # Create your views here.
 
 def home(request):
@@ -9,56 +8,73 @@ def home(request):
 
 
 def easy(request):
-    context = {}
+    context = {'highscore': 0}  # Default highscore to 0
     
     if request.user.is_authenticated:
         user = request.user
-        # Get the highest score for 'Easy' difficulty
-        highest_easy_score = HighScore.objects.filter(
+        # Get all highscores for 'Easy' difficulty
+        highscores = HighScore.objects.filter(
             username=user, 
             difficulty="Easy"
-        ).aggregate(Max('score'))['score__max']
-
-        context = {
-            'user': user,
-            'highscore': highest_easy_score if highest_easy_score is not None else 0
-        }
-    else:
-        context['highscore'] = 0
+        )
+        
+        # If highscores exist, get the highest one
+        if highscores.exists():
+            # Order by score in descending order and take the first one
+            highest_score = highscores.order_by('-score').first()
+            context.update({
+                'user': user,
+                'highscore': highest_score.score
+            })
 
     return render(request, 'game/bonk-it-game.html', context)
 
 
 def hard(request):
-    context = {
-        'highscores': None
-    }
+    context = {'highscore': 0}  # Default highscore to 0
     
     if request.user.is_authenticated:
         user = request.user
-        highscores = HighScore.objects.filter(username=request.user, difficulty="Hard")
+        # Get all highscores for 'Hard' difficulty
+        highscores = HighScore.objects.filter(
+            username=user, 
+            difficulty="Hard"
+        )
         
-        context = {
-        'user': user,
-        'highscores': highscores
-        }
+        # If highscores exist, get the highest one
+        if highscores.exists():
+            # Order by score in descending order and take the first one
+            highest_score = highscores.order_by('-score').first()
+            context.update({
+                'user': user,
+                'highscore': highest_score.score
+            })
+
     return render(request, 'game/hard-mode.html', context)
 
 
 def heck(request):
-    context = {
-        'highscores': None
-    }
+    context = {'highscore': 0}  # Default highscore to 0
     
     if request.user.is_authenticated:
         user = request.user
-        highscores = HighScore.objects.filter(username=request.user, difficulty="Heck")
+        # Get all highscores for 'Heck' difficulty
+        highscores = HighScore.objects.filter(
+            username=user, 
+            difficulty="Heck"
+        )
         
-        context = {
-        'user': user,
-        'highscores': highscores
-        }
+        # If highscores exist, get the highest one
+        if highscores.exists():
+            # Order by score in descending order and take the first one
+            highest_score = highscores.order_by('-score').first()
+            context.update({
+                'user': user,
+                'highscore': highest_score.score
+            })
+
     return render(request, 'game/heck-mode.html', context)
+
 
 
 @login_required
@@ -84,3 +100,15 @@ def submit_high_score(request):
     
     # If not a POST request, redirect back to the game
     return redirect('home')  
+
+from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def increment_total_games(request):
+    if request.method == 'POST':
+        request.user.bonkprofile.total_games += 1
+        request.user.bonkprofile.save()
+        return JsonResponse({'total_games': request.user.bonkprofile.total_games})
+    
+    return JsonResponse({'error': 'Invalid request'}, status=400)

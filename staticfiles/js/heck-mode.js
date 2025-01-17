@@ -126,6 +126,9 @@ function handleButtonClick(buttonId) {
         score++;
         updateScore();
         newPrompt();
+        if (buttonId === "btn-bonk"){
+            bonkSound.currentTime = 0; // Reset audio to start
+            bonkSound.play();}
     } else {
         endGame();
     }
