@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.db.models import Max
 from bonk_profile.models import HighScore
 # Create your views here.
 
@@ -8,17 +9,23 @@ def home(request):
 
 
 def easy(request):
-    context = {
-        'highscores': None
-    }
+    context = {}
     
     if request.user.is_authenticated:
         user = request.user
-        highscores = HighScore.objects.filter(username=request.user, difficulty="Easy")
+        # Get the highest score for 'Easy' difficulty
+        highest_easy_score = HighScore.objects.filter(
+            username=user, 
+            difficulty="Easy"
+        ).aggregate(Max('score'))['score__max']
+
         context = {
-        'user': user,
-        'highscores': highscores
+            'user': user,
+            'highscore': highest_easy_score if highest_easy_score is not None else 0
         }
+    else:
+        context['highscore'] = 0
+
     return render(request, 'game/bonk-it-game.html', context)
 
 
