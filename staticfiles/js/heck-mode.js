@@ -150,6 +150,7 @@ document.getElementById('play-again').addEventListener('click', function() {
     startGame();
   });
 
+
   document.addEventListener('keydown', function(event) {
     switch(event.key.toLowerCase()) {
         case 'q':
@@ -166,6 +167,7 @@ document.getElementById('play-again').addEventListener('click', function() {
             break;
     }
 });
+
 // Add click listeners to game buttons
 prompts.forEach(prompt => {
     document.getElementById(prompt.buttonId).addEventListener("click", () => handleButtonClick(prompt.buttonId));
@@ -197,3 +199,4 @@ document.addEventListener('keydown', function(event) {
         document.getElementById('btn-bonk').click();
     }
 });
+

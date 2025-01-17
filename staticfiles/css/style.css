@@ -61,6 +61,10 @@ a {
     color: #05f140 !important;
 }
 
+.nav-link:visited, .nav-link.show {
+    color:#05f140 !important;
+}
+
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(5,241,64)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
@@ -111,6 +115,11 @@ i:hover {
     text-align: center;
     background-color: #21032973;
     font-size: 2.5rem
+}
+
+.prompt-btn-bonk {
+    
+    color: #7a0694;
 }
 
 .prompt-btn-bonk {
@@ -281,8 +290,6 @@ td{
 th{
     font-size: 1.8rem;
     background-color: #7a0694;
-    
-    
 }
 
 .highest-score {
@@ -299,6 +306,40 @@ th{
         color:#05f140;
         -webkit-text-stroke: 0.1px black;
 }
+}
+
+.profile-pic-leaderboard {
+    float: left;
+    width: 25px;            
+    height: 25px;           
+    border-radius: 50%;      
+    object-fit: cover;       
+    border: 1.5px solid #7a0694;
+}
+
+.highest-score {
+   font-weight: bold;
+   text-transform: uppercase;
+
+}
+
+@media (max-width: 550px) {
+    .leader-header{
+        font-family: 'Slackey', sans-serif;
+        font-weight: bolder;
+        font-size: 2rem;
+        color:#05f140;
+        -webkit-text-stroke: 0.1px black;
+}
+}
+
+.profile-pic-leaderboard {
+    float: left;
+    width: 25px;            
+    height: 25px;           
+    border-radius: 50%;      
+    object-fit: cover;       
+    border: 1.5px solid #7a0694;
 }
 /*--- Profile Page --*/
 .profile-container {
@@ -318,3 +359,28 @@ th{
 }
 
 /*--- Accounts Pages --*/
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    width: 100%;
+}
+
+.login-card {
+    background: #d487e5;
+	border-radius: 20px;
+	padding: 3rem;
+	width: 100%;
+	max-width: 450px;
+	box-shadow: 0 15px 35px rgba(50, 24, 46, 0.288);
+	position: relative;
+	overflow: hidden;
+}
+
+.login-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
