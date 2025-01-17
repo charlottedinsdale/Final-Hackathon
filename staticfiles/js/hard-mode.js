@@ -158,6 +158,7 @@ document.getElementById('play-again').addEventListener('click', function() {
             break;
     }
 });
+
 // Add click listeners to game buttons
 prompts.forEach(prompt => {
     document.getElementById(prompt.buttonId).addEventListener("click", () => handleButtonClick(prompt.buttonId));
@@ -189,3 +190,4 @@ document.addEventListener('keydown', function(event) {
         document.getElementById('btn-bonk').click();
     }
 });
+
