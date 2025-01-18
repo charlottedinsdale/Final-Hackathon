@@ -32,13 +32,15 @@ const gameInstructionDiv = document.getElementById("game-instruction");
 const navbar = document.getElementById("navbar");
 const footer = document.getElementById("footer");
 const currentScoreSpan = document.getElementById("current-score");
+const bonkButton = document.getElementById("btn-bonk")
 const startButton = document.getElementById("start-button");
 const playAgainButton = document.getElementById("play-again")
 const gameOverModal = new bootstrap.Modal(document.getElementById('game-over-modal'));
 const finalScoreSpan = document.getElementById("final-score");
 const highScoreForm = document.getElementById("high-score-form");
 const userHighScore = parseInt(document.getElementById('high-score').dataset.highScore);
-
+const soundUrl = document.getElementById('soundScript').getAttribute('data-sound-url');
+const bonkSound = new Audio(soundUrl);
 // Start game function
 function startGame() {
     score = 0;
@@ -46,6 +48,7 @@ function startGame() {
     updateScore();
     startButton.disabled = true;
     startButton.style.display = "none"
+    bonkButton.innerHTML = "Bonk it!"
     gameInstructionDiv.textContent = "Get Ready!"
     previousPrompt = null;
     setTimeout(newPrompt, 2000);
@@ -143,16 +146,17 @@ function updateScore() {
 startButton.addEventListener("click", function(){
     footer.style.display = "none";
     navbar.style.display = "none";
+    incrementTotalGames();
     startGame();
 });
 document.getElementById('play-again').addEventListener('click', function() {
     let modal = bootstrap.Modal.getInstance(document.getElementById('game-over-modal'));
     footer.style.display = "none";
     navbar.style.display = "none";
+    incrementTotalGames();
     modal.hide();
     startGame();
   });
-
 
   document.addEventListener('keydown', function(event) {
     switch(event.key.toLowerCase()) {
@@ -170,7 +174,6 @@ document.getElementById('play-again').addEventListener('click', function() {
             break;
     }
 });
-
 // Add click listeners to game buttons
 prompts.forEach(prompt => {
     document.getElementById(prompt.buttonId).addEventListener("click", () => handleButtonClick(prompt.buttonId));
@@ -203,3 +206,26 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+function incrementTotalGames(){
+    fetch('/game/increment-total-games/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken') // Include CSRF token if using Django
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Total games incremented:', data.total_games);
+        // Optionally update the UI to reflect the new total
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+};
+
+// Function to get CSRF token (if using Django)
+function getCookie(name) {
+    const cookieValue = document.cookie.split('; ').find(row => row.startsWith(name + '='));
+    return cookieValue ? decodeURIComponent(cookieValue.split('=')[1]) : null;
+}
