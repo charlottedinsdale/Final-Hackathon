@@ -16,16 +16,24 @@ class LeaderboardView(View):
         hard_leaderboard = HighScore.objects.filter(difficulty='Hard').order_by('-score')[:10]
         heck_leaderboard = HighScore.objects.filter(difficulty='Heck').order_by('-score')[:10]
 
+        heck_highscore = HighScore.objects.filter(username=request.user, difficulty='Heck').order_by('-score').first()
+        hard_highscore = HighScore.objects.filter(username=request.user, difficulty='Hard').order_by('-score').first()
+        easy_highscore = HighScore.objects.filter(username=request.user, difficulty='Easy').order_by('-score').first()
+
+        heck_rank = get_user_rank(request.user, 'Heck') if heck_highscore else None
+        hard_rank = get_user_rank(request.user, 'Hard') if hard_highscore else None
+        easy_rank = get_user_rank(request.user, 'Easy') if easy_highscore else None
+
         return render(request, self.template_name, {
 
             'easy_leaderboard': easy_leaderboard,
             'hard_leaderboard': hard_leaderboard,
             'heck_leaderboard': heck_leaderboard,
+            'heck_rank': heck_rank,
+            'hard_rank': hard_rank,
+            'easy_rank': easy_rank,
         })
         return render(request, 'bonk_profile/global_leaderboard.html', context)
-
-
-     
 
 def get_user_rank(user, difficulty):
     all_highscores = HighScore.objects.filter(difficulty=difficulty).order_by('-score')

@@ -32,7 +32,17 @@
                             {% for score in heck_leaderboard %}
                             <tr class="{% if forloop.first %} highest-score{% endif %}">
                                     <td>{{ forloop.counter }}</td>
-                                    <td><img class="profile-pic-leaderboard" src="{{ score.username.bonkprofile.profile_pic.url }}" alt="{{user.username}}'s profile picture">{{ score.username }}</td>
+                                    <td>
+                                        <div class="leaderboard-flex">
+                                            <img class="profile-pic-leaderboard" src="{{ score.username.bonkprofile.profile_pic.url }}" alt="{{score.username}}'s profile picture">
+                                            <span>{{ score.username }}</span>
+                                            {% if forloop.counter == 1 %}
+                                            <img src="{% static '/images/crown.png' %}" alt="Crown" class="crown-pic">
+                                            {% else %}
+                                            <span></span>
+                                            {% endif %}
+                                        </div>
+                                    </td>
                                     <td>{{ score.score }}</td>
                                 </tr>
                             {% empty %}
@@ -66,7 +76,17 @@
                     <tr class="{% if forloop.first %} highest-score{% endif %}">
                             
                             <td>{{ forloop.counter }}</td>
-                            <td><img class="profile-pic-leaderboard" src="{{ score.username.bonkprofile.profile_pic.url }}" alt="{{user.username}}'s profile picture">{{ score.username }}</td>
+                            <td>
+                            <div class="leaderboard-flex">
+                                <img class="profile-pic-leaderboard" src="{{ score.username.bonkprofile.profile_pic.url }}" alt="{{score.username}}'s profile picture">
+                                <span>{{ score.username }}</span>
+                                {% if forloop.counter == 1 %}
+                                <img src="{% static '/images/crown.png' %}" alt="Crown" class="crown-pic">
+                                {% else %}
+                                <span></span>
+                                {% endif %}
+                            </div>
+                            </td>
                             <td>{{ score.score }}</td>
                         </tr>
                     {% empty %}
@@ -99,7 +119,17 @@
                             {% for score in easy_leaderboard %}
                             <tr class="{% if forloop.first %} highest-score{% endif %}">
                                     <td>{{ forloop.counter }}</td>
-                                    <td><img class="profile-pic-leaderboard" src="{{ score.username.bonkprofile.profile_pic.url }}" alt="{{user.username}}'s profile picture">{{ score.username }}</td>
+                                    <td>
+                                        <div class="leaderboard-flex">
+                                            <img class="profile-pic-leaderboard" src="{{ score.username.bonkprofile.profile_pic.url }}" alt="{{score.username}}'s profile picture">
+                                            <span>{{ score.username }}</span>
+                                            {% if forloop.counter == 1 %}
+                                            <img src="{% static '/images/crown.png' %}" alt="Crown" class="crown-pic">
+                                            {% else %}
+                                            <span></span>
+                                            {% endif %}
+                                        </div>
+                                    </td>
                                     <td>{{ score.score }}</td>
                                 </tr>
                             {% empty %}
