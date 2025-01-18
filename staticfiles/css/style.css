@@ -378,6 +378,7 @@ td{
     font-family:"Iceland", serif;
     text-align: center;
     font-size: 1.3rem;
+    vertical-align: center;
 }
 
 th{
@@ -409,11 +410,22 @@ th{
 
 .profile-pic-leaderboard {
     float: left;
-    width: 25px;            
-    height: 25px;           
+    width: 40px;            
+    height: 40px;           
     border-radius: 50%;      
     object-fit: cover;       
     border: 1.5px solid #7a0694;
+    vertical-align: center;
+}
+
+.crown-pic {
+    max-height: 40px;
+}
+
+.leaderboard-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /*--- Profile Page --*/
