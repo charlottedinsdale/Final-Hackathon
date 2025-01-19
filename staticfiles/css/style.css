@@ -1,9 +1,6 @@
 /*--- Global Styles --*/
 body {
     font-family: "Iceland", serif;
-}
-
-main {
     background-color: #d487e5;
 }
 
@@ -123,8 +120,10 @@ a {
     background-color: #7a0694;
     color: #05f140;
     font-size: 20px;
-    bottom: 0;
+    /* bottom: 0; */
     padding-top: 10px;
+    /* position: fixed; */
+    width: 100%;
 }
 
 i {
@@ -187,7 +186,7 @@ i:hover {
 /*--- Game Page --*/
 #game-container{
     width: 100%;
-    padding-bottom:10px;
+    margin-bottom :55px;
 }
 .game-row{
     min-height: 25%;
