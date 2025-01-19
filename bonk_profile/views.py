@@ -16,13 +16,19 @@ class LeaderboardView(View):
         hard_leaderboard = HighScore.objects.filter(difficulty='Hard').order_by('-score')[:10]
         heck_leaderboard = HighScore.objects.filter(difficulty='Heck').order_by('-score')[:10]
 
-        heck_highscore = HighScore.objects.filter(username=request.user, difficulty='Heck').order_by('-score').first()
-        hard_highscore = HighScore.objects.filter(username=request.user, difficulty='Hard').order_by('-score').first()
-        easy_highscore = HighScore.objects.filter(username=request.user, difficulty='Easy').order_by('-score').first()
+        if request.user.is_authenticated:
+            # If authenticated, fetch high scores and ranks for the user
+            heck_highscore = HighScore.objects.filter(username=request.user, difficulty='Heck').order_by('-score').first()
+            hard_highscore = HighScore.objects.filter(username=request.user, difficulty='Hard').order_by('-score').first()
+            easy_highscore = HighScore.objects.filter(username=request.user, difficulty='Easy').order_by('-score').first()
 
-        heck_rank = get_user_rank(request.user, 'Heck') if heck_highscore else None
-        hard_rank = get_user_rank(request.user, 'Hard') if hard_highscore else None
-        easy_rank = get_user_rank(request.user, 'Easy') if easy_highscore else None
+            heck_rank = get_user_rank(request.user, 'Heck') if heck_highscore else None
+            hard_rank = get_user_rank(request.user, 'Hard') if hard_highscore else None
+            easy_rank = get_user_rank(request.user, 'Easy') if easy_highscore else None
+        else:
+            # If not authenticated, set high scores and ranks to None
+            heck_highscore = hard_highscore = easy_highscore = None
+            heck_rank = hard_rank = easy_rank = None
 
         return render(request, self.template_name, {
 

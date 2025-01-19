@@ -25,3 +25,5 @@ class HighScore(models.Model):
     username = models.ForeignKey(User, on_delete=models.CASCADE, related_name="highscore")
     score = models.PositiveIntegerField(default = 0)
     difficulty = models.CharField(max_length=12, choices=DIFFICULTY_CHOICES, default=EASY)
+    def __str__(self):
+        return f"{self.username} got a {self.difficulty} highscore of {self.score}"

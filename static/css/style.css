@@ -137,6 +137,12 @@ i {
 i:hover {
     color: #05f140;
 }
+
+@media (max-width: 557px) {
+    #designed-by-span {
+        display: none;
+    }
+}
 /*--- Home Page --*/
 
 .main-title-page {
@@ -439,6 +445,16 @@ th{
 
 .crown-pic {
     max-height: 45px;
+}
+
+@media (max-width: 399px) {
+    .crown-pic {
+        max-height: 30px;
+    }
+    .profile-pic-leaderboard {
+        width: 25px;
+        height: 25px;
+    }
 }
 
 .leaderboard-flex {
