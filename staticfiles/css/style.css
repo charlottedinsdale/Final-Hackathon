@@ -1,14 +1,12 @@
 /*--- Global Styles --*/
 body {
     font-family: "Iceland", serif;
-}
-
-main {
     background-color: #d487e5;
 }
 
 .slackey {
     font-family: "Slackey", serif;
+    
 }
 
 a {
@@ -23,6 +21,16 @@ a {
 .main-btn:hover, .main-btn:focus {
     color: #05f140;
     background-color: #7a0694;
+}
+
+.main-btn-inverted {
+    color: #1fee53;
+    background-color: #7a0694;
+}
+
+.main-btn-inverted:hover, .main-btn-inverted:focus {
+    background-color: #05f140;
+    color: #7a0694;
 }
 
 .outline-text {
@@ -90,11 +98,32 @@ a {
 .dropdown-item:hover, .dropdown-item:focus, .dropdown-item.active {
     font-weight: 600;
 }
+
+.large-text {
+    font-size: 30px;
+}
+
+.purple-link {
+    color:#7a0694;
+}
+
+.purple-link:hover {
+    color:#6a0a82;
+}
+
+.purple {
+    color:#7a0694;
+}
+
 /*--- Footer --*/
 #footer {
     background-color: #7a0694;
     color: #05f140;
     font-size: 20px;
+    /* bottom: 0; */
+    padding-top: 10px;
+    /* position: fixed; */
+    width: 100%;
 }
 
 i {
@@ -107,11 +136,57 @@ i {
 i:hover {
     color: #05f140;
 }
+
+@media (max-width: 557px) {
+    #designed-by-span {
+        display: none;
+    }
+}
 /*--- Home Page --*/
+
+.main-title-page {
+    width: 100vw; 
+    margin-top: 100px; 
+    font-size: 8rem; 
+    color: #05f140; 
+    -webkit-text-stroke: 2px black;
+}
+
+#main-header-page {
+    margin-top: 25px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+}
+
+#main-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+ .btn-primary {
+    width: 200px;
+    margin-top: 10px;
+    height: 60px;
+    color:#05f140;
+ }
+
+.page-menu {
+    border: 2px solid black;
+}
+
+.large-btn {
+    width: 200px;
+    height: 100px;
+    font-size: 30px;
+}
 
 /*--- Game Page --*/
 #game-container{
     width: 100%;
+    margin-bottom :55px;
 }
 .game-row{
     min-height: 25%;
@@ -119,17 +194,30 @@ i:hover {
 .score-para{
     font-size: 2rem;
     text-align: center;
-    
+    font-weight: bolder;
     color: #7a0694;
-    
     display: flex;
     justify-content: center;
     align-items: center;
 }
 #high-score, #current-score{
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: #05f140;
-    background-color: #21032973;
+    font-weight: lighter;
+    -webkit-text-stroke: 1px black;
+    /* background-color: #21032973; */
+}
+
+@media (max-width: 510px) {
+    #current-score, #high-score {
+        font-size: 30px;
+    }   
+    .score-para {
+        font-size: 20px;
+    }
+    #game-instruction {
+        font-size: 35px;
+    }
 }
 /*------------------------------------------------ game instruction styling ----------------------------------*/
 .instruction-container {
@@ -141,10 +229,11 @@ i:hover {
 
 #game-instruction{
     text-align: center;
-    background-color: #21032973;
+    /* background-color: #21032973; */
     border:#05f140; 
-    font-size: 2.5rem;
+    font-size: 3rem;
     max-width: 50%;
+    -webkit-text-stroke: 1px black;
 }
 
 .prompt-btn-bonk {
@@ -199,13 +288,7 @@ i:hover {
     min-width: 100px;
     min-height: 100px;
 }
-#btn-pink:active,
-#btn-blue:active,
-#btn-green:active,
-#btn-red:active,
-#btn-bonk:active {
-    background-color: yellow;
-}
+
 #btn-bonk{
     min-width: 150px;
     min-height: 150px;
@@ -214,27 +297,29 @@ i:hover {
     max-width: 240px;
     max-height: 240px;
     border-radius: 35px;
+    font-size: 30px;
+    color:#05f140;
 }
 .btn-bonk {
     background-color: #7a0694;
     border-color: #3f044d;
     
 }
-.btn-bonk:hover {
+.btn-bonk:hover, #btn-bonk:active {
     background-color: #3f044d;
 }
 .btn-pink{
     background-color: #FF73b7;
     border-color:#813a5c
 }
-.btn-pink:hover{
+.btn-pink:hover, #btn-pink:active{
     background-color: #813a5c;
 }
 .btn-blue{
     background-color: #72F6f8;
     border-color: #347172;
 }
-.btn-blue:hover{
+.btn-blue:hover, #btn-blue:active{
     background-color: #347172;
 }
 
@@ -242,14 +327,14 @@ i:hover {
     background-color: #05f140;
     border-color:#14742c;
 }
-.btn-green:hover{
+.btn-green:hover, #btn-green:active{
     background-color: #14742c;
 }
 .btn-red{
     background-color: #f61111;
     border-color: #5c0a0a;
 }
-.btn-red:hover{
+.btn-red:hover, #btn-red:active{
     background-color: #5c0a0a;
 }
 
@@ -317,6 +402,7 @@ td{
     font-family:"Iceland", serif;
     text-align: center;
     font-size: 1.3rem;
+    vertical-align: center;
 }
 
 th{
@@ -340,15 +426,40 @@ th{
         color:#05f140;
         -webkit-text-stroke: 0.1px black;
 }
+.main-title-page{
+    font-size: 80px;
 }
+
+    }
 
 .profile-pic-leaderboard {
     float: left;
-    width: 25px;            
-    height: 25px;           
+    width: 40px;            
+    height: 40px;           
     border-radius: 50%;      
     object-fit: cover;       
     border: 1.5px solid #7a0694;
+    vertical-align: center;
+}
+
+.crown-pic {
+    max-height: 45px;
+}
+
+@media (max-width: 399px) {
+    .crown-pic {
+        max-height: 30px;
+    }
+    .profile-pic-leaderboard {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+.leaderboard-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /*--- Profile Page --*/
@@ -409,6 +520,10 @@ th{
 	box-shadow: 0 15px 35px rgba(50, 24, 46, 0.288);
 	position: relative;
 	overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .login-form {

@@ -4,24 +4,50 @@
 {% block content %}
 
 <div class="profile-container">
-    {% if user.is_authenticated %}
-    <img class="profile-pic" src="{{ user.bonkprofile.profile_pic.url }}" alt="{{user.username}}'s profile picture">
-    <h2 class="slackey outline-text">{{ user.username }}</h2>
-    <a href="{% url 'update_profile' %}" class="btn main-btn">Update Profile Pic</a>
-    <h5 class="slackey">Your Highscores:</h5>
-    <h4>Heck: {{ heck_highscore.score }} Rank: {{ heck_rank }}</h4>
-    <h4>Hard: {{ hard_highscore.score }} Rank: {{ hard_rank }} </h4>
-    <h4>Easy: {{ easy_highscore.score }} Rank: {{ easy_rank }} </h4>
-    <h4 class="slackey">Total Games: {{ bonkprofile.total_games }}</h5>
-    {% else %}
-    <h2 class="slackey">Bonk! You're not logged in, please 
-        <a href="{% url 'account_login' %}">Log in</a> or 
-        <a href="{% url 'account_signup' %}">Sign Up</a> to create your profile!
-    </h2>
-    <p>Bonk it! Users can store and view their high scores and get on the leaderboard! 
-        <a href="{% url 'account_signup' %}">Sign Up</a> now to start competing!
-    </p>
-    {% endif %}
+    <div class="login-card my-5">
+        {% if user.is_authenticated %}
+        <img class="profile-pic" src="{{ user.bonkprofile.profile_pic.url }}" alt="{{user.username}}'s profile picture">
+        <h2 class="slackey outline-text">{{ user.username }}</h2>
+        <a href="{% url 'update_profile' %}" class="btn main-btn">Update Profile Pic</a>
+        <h5 class="slackey my-2 outline-text purple">Your Highscores:</h5>
+        <h4 class="my-2">Heck: 
+            <span class="outline-text purple">{{ heck_highscore.score }}</span>
+             | Rank: <span class="outline-text purple">{{ heck_rank }}</span>
+            {% if heck_rank == 1 %}
+            <img src="{% static '/images/crown.png' %}" alt="Crown" class="crown-pic">
+            {% else %}
+            <span></span>
+            {% endif %}
+        </h4>
+        <h4 class="my-2">Hard: 
+            <span class="outline-text purple">{{ hard_highscore.score }}</span>
+             | Rank: <span class="outline-text purple">{{ hard_rank }}</span>
+            {% if hard_rank == 1 %}
+            <img src="{% static '/images/crown.png' %}" alt="Crown" class="crown-pic">
+            {% else %}
+            <span></span>
+            {% endif %}
+        </h4>
+        <h4 class="my-2">Easy: 
+            <span class="outline-text purple">{{ easy_highscore.score }}</span>
+             | Rank: <span class="outline-text purple">{{ easy_rank }}</span>
+            {% if easy_rank == 1 %}
+            <img src="{% static '/images/crown.png' %}" alt="Crown" class="crown-pic">
+            {% else %}
+            <span></span>
+            {% endif %}
+        </h4>
+        <h4 class="slackey my-3 outline-text purple">Total Games: {{ bonkprofile.total_games }}</h5>
+        {% else %}
+        <h2 class="slackey text-center">Bonk! You're not logged in, please 
+            <a class="purple-link" href="{% url 'account_login' %}">Log in</a> or 
+            <a class="purple-link" href="{% url 'account_signup' %}">Sign Up</a> to create your profile!
+        </h2>
+        <p class="large-text text-center">Bonk it! Users can store and view their high scores and get on the leaderboard! 
+            <a class="purple-link" href="{% url 'account_signup' %}">Sign Up</a> now to start competing!
+        </p>
+        {% endif %}
+    </div>
 </div>
 
 {% endblock %}
