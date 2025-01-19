@@ -6,6 +6,8 @@
 
 BONKIT IMAGE
 
+
+---
 **Live Site** 
 https://bonk-it-4b634a86c337.herokuapp.com/
 
@@ -13,19 +15,21 @@ https://bonk-it-4b634a86c337.herokuapp.com/
 https://github.com/charlottedinsdale/Final-Hackathon
 
 
+---
 📖 **Introduction**
 
 Bonk It is a fun, easy-to-play game testing your reflexes and thinking by challenging you to press on instructed colors. 
 Perfect for quick gaming sessions and brain training!
 
-
+---
 🎯 **Target Audience**
 
-The game is designed for anyone who wants to enjoy a simple yet engaging game. 
-Players seeking an extra challenge can try the advanced mode, which tests both reflexes and cognitive processing using the  'Stroop Effect' - a psychological phenomenon where the brain experiences conflict between processing the meaning of a word and the color in which it's written. 
+The game is designed for anyone who wants to enjoy a simple yet engaging game.  
+Players seeking an extra challenge can try the advanced mode, which tests both reflexes and cognitive processing using the  'Stroop Effect' - a psychological phenomenon where the brain experiences conflict between processing the meaning of a word and the color in which it's written.   
 For example, if the word "Red" appears in blue ink and you need to press the button corresponding to the word  (Red), your brain must resolve the conflict between the word's meaning and its visual color.
 
 
+---
 ⭐ **Features**
 
 Game Modes
@@ -38,8 +42,8 @@ There are 3 games modes.
  - Hard Mode: Increased difficulty with faster timing. The prompt only states the colour you
    need to hit. 
  
- - Heck Mode:  Advanced gameplay incorporating the 'Stroop Effect' whereby the prompt states the colour you need to hit whilst itself being in another colour.
-
+ - Heck Mode:  Advanced gameplay incorporating the 'Stroop Effect' whereby the prompt states the colour you need to hit whilst itself being in another colour.  
+   
 
 **Core Features**
 
@@ -54,6 +58,7 @@ The core features of the game are summarised below :
  - Audio feedback and game music
 
 
+---
 💫 **Technologies Used**
 
 Languages
@@ -81,12 +86,12 @@ Tools
  - ChatGPT 
  - Perplexity.
 
-  
-  
-
+   
+---
 🚀 **Getting Started.**
  
 
+---
 🧪 **Testing**
 
 *Validation*
@@ -116,7 +121,7 @@ Profile management
 Responsive design
 
   
-
+---
 🔜 **Future Features**
 
  - Platform-specific timing adjustments for mobile/desktop
@@ -125,7 +130,8 @@ Responsive design
 
  - Millisecond precision time indicator
  
- 
+
+ ---
 📘 **Credits**
 
 ***Team 'Bonkers'***
@@ -136,7 +142,7 @@ Joe Sutherland
 Rabinder Singh
 
   
-
+---
 **Acknowledgements**
 
 *Specific code used from Perplexity*
@@ -202,8 +208,7 @@ cookieValue.split('=')[1]) : null;
 }
 
   
-    
-  
+ --- 
 **Tools & Resources**
 
 Code Institute
@@ -211,5 +216,6 @@ Bootstrap
 Font Awesome
 Google Fonts
 
-  
+
+--- 
 ⭐ Star us on GitHub — it helps!
