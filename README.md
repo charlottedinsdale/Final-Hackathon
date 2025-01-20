@@ -81,7 +81,8 @@ There are 3 games modes.
 
 
 ---
-**Instructions on How to Play**. 
+**Instructions on How to Play**.  
+
 Screenshots below are a guide to how to play the game.  
 
 [![Slide 2](README_Images/Slide2.png)](README_Images/Slide2.png). 
@@ -97,7 +98,8 @@ Screenshots below are a guide to how to play the game.
 [![Slide 7](README_Images/Slide7.png)](README_Images/Slide7.png). 
 
 
-**Project Ideationn, Scoping & Planning** 
+**Project Ideationn, Scoping & Planning**. 
+
 The project ideation and scoping was done on Miro.  
 
 [![Miro Planning](README_Images/Miro%20Planning.png)](README_Images/Miro%20Planning.png)
@@ -119,10 +121,12 @@ Secondary colours were intended for colour blind players.
 
 
 ---
-**Database Schema**. 
+**Database Schema**.   
+
 A entity relstionship diagram was made to organise the database entities and their relationships to each other.   
 
-[!ERD Diagram](README_Images/ERD.png)
+[![ERD](README_Images/ERD.png)](README_Images/ERD.png)
+
   
 
 ---
@@ -218,7 +222,7 @@ A score of. 93 was recorded.
 
   
   
-*Manual Testing*
+**Manual Testing**
 # Test Report
 
 This document outlines the test results for the game, including the performance, functionality, and responsiveness across various scenarios.
