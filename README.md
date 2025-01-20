@@ -10,7 +10,7 @@
 
   
 
-[![Bonk 1](README_Images/Bonk1.png)](README_Images/Bonk1.png)
+[![Cover Page](README_Images/Cover_Page.png)](README_Images/Cover_Page.png)
 
   
   
@@ -192,17 +192,24 @@ Tools
   
 
 HTML - W3C HTML Validator.  
+HTML validation higlighted some minor errors and warnings whihc with limited time were left.
+
+[![HTML Validation](README_Images/HTML_Validation.png)](README_Images/HTML_Validation.png)
+
 
 
 
   
 
-CSS - W3C CSS Validator.
+CSS - W3C CSS Validator.  
+
+[![CSS Validation](README_Images/CSS_Validation.png)](README_Images/CSS_Validation.png)
+
 
   
 
 Python
-
+Flake8 extension was used whilst coding to linter the code. 
   
 
 JavaScript - JSHint.  
