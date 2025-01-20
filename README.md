@@ -48,31 +48,11 @@ For example, if the word "Red" appears in blue ink and you need to press the but
 
 ---
 
-⭐ **Features**
+⭐ **Features**.  
 
-Game Modes
-
-There are 3 games modes.
-
-- Easy Mode: Basic color matching gameplay. The prompt states the colour and is in the colour you need to hit.
-
-- Hard Mode: Increased difficulty with faster timing. The prompt only states the colour you need to hit.
-
-- Heck Mode: Advanced gameplay incorporating the 'Stroop Effect' whereby the prompt states the colour you need to hit whilst itself being in another colour.   
-
-
-
- 
-
-  
-  
 **Core Features**
 
-  
-
 The core features of the game are summarised below :
-
-  
 
 - User authentication (register, login, logout)
 
@@ -84,9 +64,20 @@ The core features of the game are summarised below :
 
 - Multiple difficulty levels
 
-- Colorblind mode support
+- Audio feedback and game music. 
 
-- Audio feedback and game music
+
+
+**Game Modes**
+
+There are 3 games modes.
+
+- Easy Mode: Basic color matching gameplay. The prompt states the colour and is in the colour you need to hit.
+
+- Hard Mode: Increased difficulty with faster timing. The prompt only states the colour you need to hit.
+
+- Heck Mode: Advanced gameplay incorporating the 'Stroop Effect' whereby the prompt states the colour you need to hit whilst itself being in another colour.   
+
 
 
 ---
@@ -106,7 +97,7 @@ Screenshots below are a guide to how to play the game.
 [![Slide 7](README_Images/Slide7.png)](README_Images/Slide7.png). 
 
 
-**Project Ideationn, Scoping & Planning ** 
+**Project Ideationn, Scoping & Planning** 
 The project ideation and scoping was done on Miro.  
 
 [![Miro Planning](README_Images/Miro%20Planning.png)](README_Images/Miro%20Planning.png)
@@ -128,7 +119,8 @@ Secondary colours were intended for colour blind players.
 
 
 ---
-**Database Schema**   
+**Database Schema**. 
+A entity relstionship diagram was made to organise the database entities and their relationships to each other.   
 
 [!ERD Diagram](README_Images/ERD.png)
   
@@ -136,7 +128,7 @@ Secondary colours were intended for colour blind players.
 ---
 
 💫 **Technologies Used**
-
+Front and backend technologies used are listed below.
   
 
 Languages
@@ -185,13 +177,6 @@ Tools
 - Perplexity.
 
   
-
----
-
-🚀 **Getting Started.**
-
-  
-
 ---
 
 🧪 **Testing**
@@ -219,7 +204,7 @@ Python
 JavaScript - JSHint.  
   
     
-Performance Tesing
+Performance Testing
 Performance testing was done using Google Lighthouse.  
 A score of. 93 was recorded.   
   
@@ -289,16 +274,19 @@ This document outlines the test results for the game, including the performance,
 
   
 
-- Platform-specific timing adjustments for mobile/desktop
-
-  
-
-- taking into account that the desktop users play using a mouse or keyboard whilst mobile users play using their hands
+- Platform-specific timing adjustments for mobile/desktop taking into account that the desktop users play using a mouse or keyboard whilst mobile users play using their hands
 
   
 
 - Millisecond precision time indicator
 
+- A player can Toggle colorblind mode and be competitive with non-colorblind users. 
+
+- Players can choose a theme they can play to with varying sound effects and colour schemes.  
+
+- A leader board search facility so that players can keep pace of other players scores mroe closely. 
+
+- A 'progress bar timer' so players can see the rate at which  time is depleting and can panic more / feel more thrill / have more fun. 
   
 
 ---
